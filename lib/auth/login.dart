@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project_base_app/auth/constants.dart';
 import 'package:project_base_app/auth/custom_route.dart';
 import 'package:project_base_app/auth/dashboard_screen.dart';
@@ -68,10 +67,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ],
       additionalSignupFields: [
-        const UserFormField(
-          keyName: 'Username',
-          icon: Icon(FontAwesomeIcons.userLarge),
-        ),
+        const UserFormField(keyName: 'Username'),
         const UserFormField(keyName: 'Name'),
         const UserFormField(keyName: 'Surname'),
         UserFormField(
@@ -150,7 +146,7 @@ class LoginScreen extends StatelessWidget {
         ),
         inputTheme: InputDecorationTheme(
           filled: true,
-          fillColor: Colors.purple.withOpacity(.1),
+          fillColor: Colors.purple.withValues(),
           contentPadding: EdgeInsets.zero,
           errorStyle: TextStyle(
             backgroundColor: Colors.orange,

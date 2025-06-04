@@ -119,7 +119,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         ),
       ],
       title: title,
-      backgroundColor: theme.primaryColor.withOpacity(.1),
+      backgroundColor: theme.primaryColor.withValues(),
       elevation: 0,
       // toolbarTextStyle: TextStle(),
       // textTheme: theme.accentTextTheme,
@@ -292,7 +292,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           body: Container(
             width: double.infinity,
             height: double.infinity,
-            color: theme.primaryColor.withOpacity(.1),
+            color: theme.primaryColor.withValues(),
             child: Stack(
               children: <Widget>[
                 Column(
