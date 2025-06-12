@@ -50,7 +50,7 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       title: Constants.appName,
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-      logo: const AssetImage('assets/images/ecorp.png'),
+      logo: Icon(Icons.lock, size: 100),
       logoTag: Constants.logoTag,
       titleTag: Constants.titleTag,
       navigateBackAfterRecovery: true,

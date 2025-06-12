@@ -6,7 +6,9 @@ class AppTheme {
   static const Color darkBlue = Color(0xFF0A1C3D);
   static const Color blue = Color(0xFF2868C6);
   static const Color teal = Color(0xFF91D2F4);
+  static const Color lightestPink = Color.fromARGB(255, 247, 236, 255);
   static const Color pink = Color(0xFFCBA2EA);
+  static const Color darkPink = Color.fromARGB(255, 154, 122, 178);
   static const Color purple = Color(0xFF3F3381);
   static const Color darkPurple = Color(0xFF1D1F5A);
 
