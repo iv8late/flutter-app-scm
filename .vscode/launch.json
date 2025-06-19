@@ -20,6 +20,12 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
+        },
+        {
+             "name": "flutter-app-scm (Flutter Pixel 5 API 26)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug"
         }
     ]
 }

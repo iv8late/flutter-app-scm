@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:project_base_app/auth/login.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/shared/widgets/custom_buttons.dart';
+import 'package:project_base_app/shared/widgets/custom_textStyles.dart';
 
 class StartupScreen extends StatefulWidget {
   const StartupScreen({super.key});
@@ -14,42 +14,62 @@ class StartupScreen extends StatefulWidget {
 
 class _StartupScreenState extends State<StartupScreen> {
   void _showDialog() {
-    showDialog(
+    showGeneralDialog(
       context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(
-            'Bienvenido',
-            style: TextStyle(fontSize: 10, color: AppTheme.darkBlue),
-          ),
-          content: Column(
-            mainAxisSize:
-                MainAxisSize.min, // Esto evita que ocupe toda la pantalla
-            children: [
-              SizedBox(
-                width: 200, // o el valor que prefieras
-                child: PrimaryNeonButton(
-                  content: 'LOGIN',
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.pushNamed(context, '/login');
-                  },
+      barrierDismissible: true,
+      barrierLabel: "Dialog",
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Stack(
+          children: [
+            Positioned(
+              top: 450,
+              left: 20,
+              right: 20,
+              child: Material(
+                color: Colors.transparent,
+                child: AlertDialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.transparent,
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // title: Text(
+                      //   'Bienvenido',
+                      //   style: TextStyle(
+                      //     color: Colors.greenAccent,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      //   textAlign: TextAlign.center,
+                      // ),
+                      SizedBox(
+                        width: 200,
+                        child: PrimaryNeonButton(
+                          content: 'LOGIN',
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            Navigator.pushNamed(context, '/login');
+                          },
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      SizedBox(
+                        width: 200,
+                        child: PrimaryNeonButton(
+                          content: 'REGISTER',
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            Navigator.pushNamed(context, '/register');
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(height: 5),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 200, // mismo valor
-                child: PrimaryNeonButton(
-                  content: 'REGISTER',
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.pushNamed(context, '/register');
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
@@ -63,29 +83,39 @@ class _StartupScreenState extends State<StartupScreen> {
         child: Stack(
           children: [
             SizedBox.expand(
-              child: Image.asset('assets/mov/optical.gif', fit: BoxFit.cover),
+              child: Image.asset(
+                'assets/bg/lo-fi_pixel_art_wallpapers.jpeg',
+                fit: BoxFit.cover,
+              ),
             ),
 
+            // Capa de glassmorphism
             Positioned.fill(
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 1.0),
+                filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                 child: Container(
-                  color: Colors.black.withAlpha(
-                    80,
-                  ), // Puedes ajustar la opacidad o quitarla
+                  decoration: BoxDecoration(
+                    color: Colors.black.withAlpha(180), // Vidrio tenue
+                    borderRadius: BorderRadius.circular(0), // si es necesario
+                    border: Border.all(
+                      color: Colors.black.withAlpha(280),
+                      width: 1.0,
+                    ),
+                  ),
                 ),
               ),
             ),
+
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "El contenido estará en inglés de ahora en adelante. ",
-                    style: TextStyle(
-                      color: AppTheme.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                  SizedBox(
+                    width: 150,
+                    child: Text(
+                      textAlign: TextAlign.justify,
+                      "El contenido estará en inglés de ahora en adelante. ",
+                      style: AppTextStyles.bodyMovingText,
                     ),
                   ),
                 ],

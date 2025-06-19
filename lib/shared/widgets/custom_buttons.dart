@@ -29,7 +29,7 @@ class PrimaryNeonButton extends StatefulWidget {
 
 class _PrimaryNeonButtonState extends State<PrimaryNeonButton> {
   bool _isHovered = false;
-
+  bool _isPressed = false;
   @override
   Widget build(BuildContext context) {
     final borderRadius = widget.borderRadius ?? 4.0;
@@ -49,12 +49,12 @@ class _PrimaryNeonButtonState extends State<PrimaryNeonButton> {
         fontWeight: FontWeight.w300,
         shadows: const [
           Shadow(
-            blurRadius: 3.0,
+            blurRadius: 8.0,
             color: AppTheme.darkPink,
             offset: Offset(0, 0),
           ),
           Shadow(
-            blurRadius: 3.0,
+            blurRadius: 10.0,
             color: AppTheme.darkPink,
             offset: Offset(0, 0),
           ),
@@ -68,27 +68,42 @@ class _PrimaryNeonButtonState extends State<PrimaryNeonButton> {
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadius),
-          boxShadow: [
-            BoxShadow(
-              color:
-                  _isHovered
-                      ? Colors.white.withAlpha(204) // Hover: blanco brillante
-                      : AppTheme.darkPink,
-              blurRadius: _isHovered ? 30 : 40,
-              spreadRadius: _isHovered ? 0.5 : 1,
-              offset: const Offset(0, 0),
-            ),
-          ],
-        ),
-        child: TextButton(
-          style: baseStyle,
-          onPressed: widget.onPressed,
-          child: Text(widget.content),
+      onExit:
+          (_) => setState(() {
+            _isHovered = false;
+            _isPressed = false;
+          }),
+      child: GestureDetector(
+        onTapDown: (_) => setState(() => _isPressed = true),
+        onTapUp: (_) => setState(() => _isPressed = false),
+        onTapCancel: () => setState(() => _isPressed = false),
+        onTap: widget.onPressed,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(borderRadius),
+            boxShadow: [
+              BoxShadow(
+                color:
+                    _isHovered
+                        ? Colors.white.withAlpha(204)
+                        : AppTheme.darkPink,
+                blurRadius:
+                    _isPressed
+                        ? 60
+                        : _isHovered
+                        ? 100
+                        : 80,
+                spreadRadius: _isPressed ? 0.3 : (_isHovered ? 0.5 : 1),
+                offset: const Offset(0, 0),
+              ),
+            ],
+          ),
+          child: TextButton(
+            style: baseStyle,
+            onPressed: widget.onPressed,
+            child: Text(widget.content),
+          ),
         ),
       ),
     );
