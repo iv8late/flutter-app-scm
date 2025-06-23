@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/layout/glass_background_layout.dart';
 import 'package:project_base_app/shared/widgets/bottom_buttons.dart';
 
@@ -18,99 +19,147 @@ class _HomeScreenState extends State<HomeScreen> {
       body: GlassBackgroundLayout(
         child: Stack(
           children: [
-            SafeArea(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            Positioned.fill(
+              child: Container(
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(40),
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(10),
+                  border: Border.all(color: Colors.white, width: 1),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 24),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    SizedBox(height: 50),
                     Text(
-                      'Welcome',
+                      'Hi, USER',
                       style: TextStyle(
                         fontSize: 28,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 24),
 
-                    TextField(
-                      controller: _emailController,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        hintText: 'Search',
-                        hintStyle: TextStyle(color: Colors.white70),
-                        filled: true,
-                        fillColor: Colors.white.withOpacity(0.1),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide.none,
-                        ),
+                    Text(
+                      'Ready to explore?',
+                      style: TextStyle(
+                        fontSize: 28,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-
-                    const SizedBox(height: 20),
-
-                    Container(
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          stops: [.5, .5],
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
-                          colors: [Colors.green, Colors.transparent],
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 120),
                   ],
                 ),
               ),
             ),
 
+            // SafeArea(
+            //   child: SingleChildScrollView(
+            //     padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            //     child: Column(
+            //       crossAxisAlignment: CrossAxisAlignment.center,
+            //       children: [
+            //         const SizedBox(height: 24),
+            //         Text(
+            //           'Welcome',
+            //           style: TextStyle(
+            //             fontSize: 28,
+            //             color: Colors.white,
+            //             fontWeight: FontWeight.bold,
+            //           ),
+            //         ),
+            //         const SizedBox(height: 24),
+
+            //         TextField(
+            //           controller: _emailController,
+            //           style: const TextStyle(color: Colors.white),
+            //           decoration: InputDecoration(
+            //             hintText: 'Search',
+            //             hintStyle: TextStyle(color: Colors.white70),
+            //             filled: true,
+            //             fillColor: Colors.white.withAlpha(10),
+            //             border: OutlineInputBorder(
+            //               borderRadius: BorderRadius.circular(12),
+            //               borderSide: BorderSide.none,
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             Positioned(
-              bottom: 20,
+              bottom: 0,
               left: 0,
               right: 0,
-              child: Center(
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        rectangleTriangleButton(
-                          onTap: () {},
-                          color: Colors.blue,
-                          icon: Icons.arrow_back,
-                          direction: TriangleDirection.left,
-                        ),
-                        const SizedBox(width: 40),
-                        rectangleTriangleButton(
-                          onTap: () {},
-                          color: Colors.blue,
-                          icon: Icons.arrow_forward,
-                          direction: TriangleDirection.right,
-                        ),
-                      ],
-                    ),
-
-                    Positioned(
-                      bottom: 20,
-                      child: diamondButton(
-                        onTap: () {},
-                        color: Colors.purple,
-                        width: 70,
-                        icon: Icons.home,
-                      ),
-                    ),
-                  ],
+              child: ClipPath(
+                clipper: BottomRightTriangleClipper(),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  color: AppTheme.white,
                 ),
+              ),
+            ),
+
+            Positioned(
+              bottom: 10,
+              left: 10,
+              right: 0,
+              child: Stack(
+                alignment: Alignment.bottomLeft,
+                clipBehavior: Clip.none,
+                children: [
+                  // Botones izquierda y derecha
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      diamondButton(
+                        onTap: () {},
+                        borderColor: AppTheme.blue,
+                        color: Colors.white,
+                        bgcolor: AppTheme.blue,
+                        width: 70,
+                        icon: Icons.integration_instructions_outlined,
+                      ),
+                      const SizedBox(width: 5),
+                      diamondButton(
+                        onTap: () {},
+                        borderColor: AppTheme.blue,
+                        color: Colors.white,
+                        bgcolor: AppTheme.blue,
+                        width: 70,
+                        icon: Icons.book_outlined,
+                      ),
+                    ],
+                  ),
+
+                  // Positioned(
+                  //   bottom: 40,
+                  //   child: diamondButton(
+                  //     onTap: () {},
+                  //     borderColor: AppTheme.blue,
+                  //     color: Colors.white,
+                  //     bgcolor: AppTheme.blue,
+                  //     width: 140,
+                  //     icon: Icons.psychology_alt_outlined,
+                  //   ),
+                  // ),
+
+                  // Positioned(
+                  //   bottom: 40,
+                  //   child: diamondButton(
+                  //     onTap: () {},
+                  //     borderColor: AppTheme.blue,
+                  //     color: Colors.white,
+                  //     bgcolor: AppTheme.blue,
+                  //     width: 140,
+                  //     icon: Icons.psychology_alt_outlined,
+                  //   ),
+                  // ),
+                ],
               ),
             ),
           ],
