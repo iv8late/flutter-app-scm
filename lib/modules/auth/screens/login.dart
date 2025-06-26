@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:project_base_app/modules/layout/glass_background_layout.dart';
 import 'package:project_base_app/shared/widgets/custom_buttons.dart';
 import 'package:project_base_app/shared/widgets/custom_textStyles.dart';
 import 'package:project_base_app/shared/widgets/custom_text_field.dart';
@@ -20,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _login() {
     setState(() {
       _isLoading = true;
-      Navigator.of(context).pop();
+
       Navigator.pushNamed(context, '/home');
       _isLoading = false;
     });
@@ -33,32 +34,9 @@ class _LoginScreenState extends State<LoginScreen> {
       body:
           _isLoading
               ? Center(child: CircularProgressIndicator())
-              : SafeArea(
+              : GlassBackgroundLayout(
                 child: Stack(
                   children: [
-                    SizedBox.expand(
-                      child: Image.asset(
-                        'assets/bg/lo-fi_pixel_art_wallpapers.jpeg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-
-                    // Capa de glassmorphism
-                    Positioned.fill(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black.withAlpha(180),
-                            border: Border.all(
-                              color: Colors.black.withAlpha(280),
-                              width: 1.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
                     Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

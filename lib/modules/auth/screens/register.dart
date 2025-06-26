@@ -33,65 +33,63 @@ class _LoginScreenState extends State<RegisterScreen> {
       body:
           _isLoading
               ? Center(child: CircularProgressIndicator())
-              : SafeArea(
-                child: GlassBackgroundLayout(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(height: 60),
-                        Text('', style: AppTextStyles.pinkTitleBold),
-                        SizedBox(height: 40),
-                        CustomTextField(
-                          controller: _emailController,
-                          hintText: 'email',
-                        ),
-                        SizedBox(height: 10),
-                        CustomTextField(
-                          controller: _userController,
-                          hintText: 'user',
-                          icon: Icons.person_outline_rounded,
-                        ),
-                        SizedBox(height: 10),
-                        CustomTextField(
-                          controller: _passwordController,
-                          isPassword: true,
-                          hintText: 'password',
-                        ),
-                        SizedBox(height: 10),
-                        CustomTextField(
-                          controller: _repeatPasswordController,
-                          isPassword: true,
-                          icon: Icons.lock,
-                          hintText: 'repeat password',
-                        ),
-                        SizedBox(height: 30),
-                        PrimaryNeonButton(
-                          onPressed: _register,
-                          content: '           REGISTER            ',
-                        ),
-                        SizedBox(height: 5),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Already an user? ',
-                              style: AppTextStyles.italicPinkBody,
+              : GlassBackgroundLayout(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 60),
+                      Text('', style: AppTextStyles.pinkTitleBold),
+                      SizedBox(height: 40),
+                      CustomTextField(
+                        controller: _emailController,
+                        hintText: 'email',
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        controller: _userController,
+                        hintText: 'user',
+                        icon: Icons.person_outline_rounded,
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        controller: _passwordController,
+                        isPassword: true,
+                        hintText: 'password',
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        controller: _repeatPasswordController,
+                        isPassword: true,
+                        icon: Icons.lock,
+                        hintText: 'repeat password',
+                      ),
+                      SizedBox(height: 30),
+                      PrimaryNeonButton(
+                        onPressed: _register,
+                        content: '           REGISTER            ',
+                      ),
+                      SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Already an user? ',
+                            style: AppTextStyles.italicPinkBody,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                              Navigator.pushNamed(context, '/login');
+                            },
+                            child: Text(
+                              'Log In',
+                              style: AppTextStyles.pinkBodyBold,
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pop();
-                                Navigator.pushNamed(context, '/login');
-                              },
-                              child: Text(
-                                'Log In',
-                                style: AppTextStyles.pinkBodyBold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),

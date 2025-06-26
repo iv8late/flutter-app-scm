@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
+import 'package:project_base_app/modules/layout/glass_background_layout.dart';
 import 'package:project_base_app/shared/widgets/custom_buttons.dart';
 import 'package:project_base_app/shared/widgets/custom_textStyles.dart';
 
@@ -35,14 +36,6 @@ class _StartupScreenState extends State<StartupScreen> {
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // title: Text(
-                      //   'Bienvenido',
-                      //   style: TextStyle(
-                      //     color: Colors.greenAccent,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      //   textAlign: TextAlign.center,
-                      // ),
                       SizedBox(
                         width: 200,
                         child: PrimaryNeonButton(
@@ -78,34 +71,9 @@ class _StartupScreenState extends State<StartupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.teal,
-      body: SafeArea(
+      body: GlassBackgroundLayout(
         child: Stack(
           children: [
-            SizedBox.expand(
-              child: Image.asset(
-                'assets/bg/lo-fi_pixel_art_wallpapers.jpeg',
-                fit: BoxFit.cover,
-              ),
-            ),
-
-            // Capa de glassmorphism
-            Positioned.fill(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withAlpha(180), // Vidrio tenue
-                    borderRadius: BorderRadius.circular(0), // si es necesario
-                    border: Border.all(
-                      color: Colors.black.withAlpha(280),
-                      width: 1.0,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

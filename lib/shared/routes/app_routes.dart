@@ -4,6 +4,7 @@ import 'package:project_base_app/modules/auth/screens/login.dart';
 import 'package:project_base_app/modules/auth/screens/register.dart';
 import 'package:project_base_app/modules/auth/screens/startup.dart';
 import 'package:project_base_app/modules/home/screens/home.dart';
+import 'package:project_base_app/modules/principal/menu_courses.dart';
 import 'package:project_base_app/widgets/notFound/pages/page_404.dart';
 
 class AppRoutes {
@@ -16,6 +17,7 @@ class AppRoutes {
     '/register': (context) => const RegisterScreen(),
     '/lesson': (context) => const LessonContent(),
     '/home': (context) => const HomeScreen(),
+    '/courses': (context) => const MenuCourses(),
   };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

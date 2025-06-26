@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/layout/glass_background_layout.dart';
+import 'package:project_base_app/modules/principal/menu_courses.dart';
 import 'package:project_base_app/shared/widgets/bottom_buttons.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
       body: GlassBackgroundLayout(
         child: Stack(
           children: [
@@ -55,41 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            // SafeArea(
-            //   child: SingleChildScrollView(
-            //     padding: const EdgeInsets.symmetric(horizontal: 32.0),
-            //     child: Column(
-            //       crossAxisAlignment: CrossAxisAlignment.center,
-            //       children: [
-            //         const SizedBox(height: 24),
-            //         Text(
-            //           'Welcome',
-            //           style: TextStyle(
-            //             fontSize: 28,
-            //             color: Colors.white,
-            //             fontWeight: FontWeight.bold,
-            //           ),
-            //         ),
-            //         const SizedBox(height: 24),
-
-            //         TextField(
-            //           controller: _emailController,
-            //           style: const TextStyle(color: Colors.white),
-            //           decoration: InputDecoration(
-            //             hintText: 'Search',
-            //             hintStyle: TextStyle(color: Colors.white70),
-            //             filled: true,
-            //             fillColor: Colors.white.withAlpha(10),
-            //             border: OutlineInputBorder(
-            //               borderRadius: BorderRadius.circular(12),
-            //               borderSide: BorderSide.none,
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             Positioned(
               bottom: 0,
               left: 0,
@@ -124,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 70,
                         icon: Icons.integration_instructions_outlined,
                       ),
-                      const SizedBox(width: 5),
+                      const SizedBox(width: 10),
                       diamondButton(
                         onTap: () {},
                         borderColor: AppTheme.blue,
@@ -147,19 +112,75 @@ class _HomeScreenState extends State<HomeScreen> {
                   //     icon: Icons.psychology_alt_outlined,
                   //   ),
                   // ),
-
-                  // Positioned(
-                  //   bottom: 40,
-                  //   child: diamondButton(
-                  //     onTap: () {},
-                  //     borderColor: AppTheme.blue,
-                  //     color: Colors.white,
-                  //     bgcolor: AppTheme.blue,
-                  //     width: 140,
-                  //     icon: Icons.psychology_alt_outlined,
-                  //   ),
-                  // ),
+                  Positioned(
+                    left: 40,
+                    bottom: 40,
+                    child: diamondButton(
+                      onTap: () {},
+                      borderColor: AppTheme.blue,
+                      color: Colors.white,
+                      bgcolor: AppTheme.blue,
+                      width: 70,
+                      icon: Icons.psychology_alt_outlined,
+                    ),
+                  ),
                 ],
+              ),
+            ),
+
+            Positioned(
+              bottom: 130,
+              left: 10,
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/courses');
+                  },
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.blue, // Color de fondo del círculo
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.white, // Borde blanco
+                        width: 4,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 8,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            Positioned(
+              bottom: 230,
+              left: 10,
+              child: Text(
+                'Continue learning',
+                style: TextStyle(
+                  fontSize: 28,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            Hero(
+              tag: 'courses-hero',
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const MenuCourses()),
+                  );
+                },
               ),
             ),
           ],
