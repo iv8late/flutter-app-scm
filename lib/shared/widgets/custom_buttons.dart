@@ -36,11 +36,11 @@ class _PrimaryNeonButtonState extends State<PrimaryNeonButton> {
     final borderColor =
         _isHovered
             ? Colors.white
-            : (widget.borderColor ?? AppTheme.lightestPink);
+            : (widget.borderColor ?? AppTheme.lightestPurple);
 
     final baseStyle = TextButton.styleFrom(
       backgroundColor: Colors.transparent,
-      foregroundColor: widget.foregroundColor ?? AppTheme.lightestPink,
+      foregroundColor: widget.foregroundColor ?? AppTheme.lightestPurple,
       padding:
           widget.padding ??
           const EdgeInsets.symmetric(horizontal: 24, vertical: 12),

@@ -1,10 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/layout/glass_background_layout.dart';
 import 'package:project_base_app/shared/widgets/custom_buttons.dart';
-import 'package:project_base_app/shared/widgets/custom_textStyles.dart';
+import 'package:project_base_app/shared/widgets/custom_text_styles.dart';
 
 class StartupScreen extends StatefulWidget {
   const StartupScreen({super.key});

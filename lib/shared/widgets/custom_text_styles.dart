@@ -20,20 +20,20 @@ class AppTextStyles {
   static const TextStyle italicPinkBody = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w300,
-    color: AppTheme.lightestPink,
+    color: AppTheme.lightestPurple,
     fontStyle: FontStyle.italic,
     letterSpacing: 1.8,
   );
   static const TextStyle pinkBodyBold = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    color: AppTheme.lightestPink,
+    color: AppTheme.lightestPurple,
     letterSpacing: 1.8,
   );
   static const TextStyle pinkTitleBold = TextStyle(
     fontSize: 40,
     fontWeight: FontWeight.w600,
-    color: AppTheme.lightestPink,
+    color: AppTheme.lightestPurple,
   );
 
   static final TextStyle bodyMovingText = GoogleFonts.lato(

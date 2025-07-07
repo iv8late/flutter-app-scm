@@ -1,9 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:project_base_app/modules/layout/glass_background_layout.dart';
 import 'package:project_base_app/shared/widgets/custom_buttons.dart';
-import 'package:project_base_app/shared/widgets/custom_textStyles.dart';
+import 'package:project_base_app/shared/widgets/custom_text_styles.dart';
 import 'package:project_base_app/shared/widgets/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {

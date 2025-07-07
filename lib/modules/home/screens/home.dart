@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
-import 'package:project_base_app/modules/layout/glass_background_layout.dart';
-import 'package:project_base_app/modules/principal/menu_courses.dart';
+import 'package:project_base_app/modules/layout/space_background_layout.dart';
+import 'package:project_base_app/modules/principal/themes_menu.dart';
 import 'package:project_base_app/shared/widgets/bottom_buttons.dart';
+import 'package:flutter_arc_text/flutter_arc_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,27 +19,49 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GlassBackgroundLayout(
+      body: SpaceBackgroundLayout(
         child: Stack(
           children: [
+            SafeArea(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const ThemesMenu()),
+                  );
+                },
+                child: ThemesMenu(),
+              ),
+            ),
+
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+                child: Container(
+                  color: AppTheme.primaryDark.withAlpha(
+                    160,
+                  ), // Ajusta la opacidad para más oscuridad
+                ),
+              ),
+            ),
             Positioned.fill(
               child: Container(
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.all(40),
                 decoration: BoxDecoration(
-                  color: Colors.white.withAlpha(10),
+                  color: AppTheme.white.withAlpha(10),
                   border: Border.all(color: Colors.white, width: 1),
                   borderRadius: BorderRadius.all(Radius.circular(15)),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                    SizedBox(height: 50),
+                    SizedBox(height: 100),
                     Text(
-                      'Hi, USER',
+                      'HI, USER',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 40,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -45,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       'Ready to explore?',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -55,16 +80,25 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
+            // base
             Positioned(
               bottom: 0,
               left: 0,
               right: 0,
               child: ClipPath(
                 clipper: BottomRightTriangleClipper(),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 200,
-                  color: AppTheme.white,
+                child: Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [AppTheme.white, AppTheme.lightestPurple],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -83,76 +117,82 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       diamondButton(
                         onTap: () {},
-                        borderColor: AppTheme.blue,
+                        borderColor: AppTheme.darkestPurple,
                         color: Colors.white,
-                        bgcolor: AppTheme.blue,
+                        bgcolor: AppTheme.darkestPurple,
                         width: 70,
                         icon: Icons.integration_instructions_outlined,
                       ),
                       const SizedBox(width: 10),
                       diamondButton(
                         onTap: () {},
-                        borderColor: AppTheme.blue,
+                        borderColor: AppTheme.darkestPurple,
                         color: Colors.white,
-                        bgcolor: AppTheme.blue,
+                        bgcolor: AppTheme.darkestPurple,
                         width: 70,
                         icon: Icons.book_outlined,
                       ),
                     ],
                   ),
 
-                  // Positioned(
-                  //   bottom: 40,
-                  //   child: diamondButton(
-                  //     onTap: () {},
-                  //     borderColor: AppTheme.blue,
-                  //     color: Colors.white,
-                  //     bgcolor: AppTheme.blue,
-                  //     width: 140,
-                  //     icon: Icons.psychology_alt_outlined,
-                  //   ),
-                  // ),
                   Positioned(
                     left: 40,
                     bottom: 40,
-                    child: diamondButton(
-                      onTap: () {},
-                      borderColor: AppTheme.blue,
-                      color: Colors.white,
-                      bgcolor: AppTheme.blue,
-                      width: 70,
-                      icon: Icons.psychology_alt_outlined,
+                    child: Row(
+                      children: [
+                        diamondButton(
+                          onTap: () {},
+                          borderColor: AppTheme.darkPurple,
+                          color: Colors.white,
+                          bgcolor: AppTheme.darkPurple,
+                          width: 70,
+                          icon: Icons.psychology_alt_outlined,
+                        ),
+                        const SizedBox(width: 10),
+                        diamondButton(
+                          onTap: () {},
+                          borderColor: AppTheme.darkPurple,
+                          color: Colors.white,
+                          bgcolor: AppTheme.darkPurple,
+                          width: 50,
+                          icon: Icons.psychology_alt_outlined,
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
 
+            // Botón circular
             Positioned(
               bottom: 130,
               left: 10,
               child: Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/courses');
+                    Navigator.pushNamed(context, '/themes');
                   },
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.blue, // Color de fondo del círculo
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.white, // Borde blanco
-                        width: 4,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          offset: Offset(0, 4),
+                  child: Hero(
+                    tag: 'courses-hero',
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: AppTheme.blue, // fondo
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: AppTheme.lightblue, // Borde blanco
+                          width: 4,
                         ),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppTheme.blue,
+                            blurRadius: 8,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -160,27 +200,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             Positioned(
-              bottom: 230,
-              left: 10,
-              child: Text(
-                'Continue learning',
-                style: TextStyle(
-                  fontSize: 28,
+              bottom: 180,
+              left: 60,
+              child: ArcText(
+                radius: 50,
+                text: 'continue learning  ',
+                textStyle: const TextStyle(
+                  fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
-            ),
-
-            Hero(
-              tag: 'courses-hero',
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const MenuCourses()),
-                  );
-                },
+                startAngle: -1 / 1.5, // Empieza desde arriba del círculo
+                placement: Placement.outside, // o inside
+                direction: Direction.clockwise, // dirección del arco
               ),
             ),
           ],
