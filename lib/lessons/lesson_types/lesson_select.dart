@@ -6,6 +6,9 @@ class SelectLesson extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: AppTheme.darkBlue);
+    return Scaffold(
+      body: Stack(children: []),
+      backgroundColor: AppTheme.darkPink,
+    );
   }
 }

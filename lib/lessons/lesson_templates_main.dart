@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:project_base_app/lessons/lesson_types/lesson_input.dart';
 import 'package:project_base_app/lessons/lesson_types/lesson_intro.dart';
 import 'package:project_base_app/lessons/lesson_types/lesson_select.dart';
+import 'package:project_base_app/modules/courses/classes/course.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class LessonContent extends StatefulWidget {
-  const LessonContent({super.key});
+class LessonTemplatesMain extends StatefulWidget {
+  final Lesson item;
+  const LessonTemplatesMain({super.key, required this.item});
 
   @override
-  State<LessonContent> createState() => _LessonContentState();
+  State<LessonTemplatesMain> createState() => _LessonTemplatesMainState();
 }
 
-class _LessonContentState extends State<LessonContent> {
+class _LessonTemplatesMainState extends State<LessonTemplatesMain> {
   final PageController _controller = PageController();
 
   @override

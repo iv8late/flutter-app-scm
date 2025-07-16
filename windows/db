@@ -1,0 +1,176 @@
+-- Tabla: role
+CREATE TABLE role (
+    ID INT PRIMARY KEY,
+    description VARCHAR(40),
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+-- Tabla: stages
+CREATE TABLE stages (
+    ID INT PRIMARY KEY,
+    description VARCHAR(50),
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+-- Tabla: themes
+CREATE TABLE themes (
+    ID INT PRIMARY KEY,
+  
+    stageID INT,
+    description VARCHAR(50),
+ 	status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (stageID) REFERENCES stages(ID)
+);
+
+-- Tabla: courses
+CREATE TABLE courses (
+    ID INT PRIMARY KEY,
+    stageID INT,
+    themeID INT,
+    description VARCHAR(50),
+status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (stageID) REFERENCES stages(ID),
+    FOREIGN KEY (themeID) REFERENCES themes(ID)
+);
+
+-- Tabla: levels
+CREATE TABLE levels (
+    ID INT PRIMARY KEY,
+    courseID INT,
+    stageID INT,
+    description VARCHAR(50),
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (courseID) REFERENCES courses(ID),
+    FOREIGN KEY (stageID) REFERENCES stages(ID)
+);
+
+-- Tabla: types
+CREATE TABLE types (
+    ID INT PRIMARY KEY,
+    code varchar(3)
+    description VARCHAR(50),
+ 	status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+-- Tabla: lessons
+CREATE TABLE lessons (
+    ID INT PRIMARY KEY,
+    levelID INT,
+    typeID INT,
+    description VARCHAR(50),
+ 	status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (levelID) REFERENCES levels(ID),
+    FOREIGN KEY (typeID) REFERENCES types(ID)
+);
+
+-- Tabla: lessonsContent
+CREATE TABLE lessonsContent (
+    ID INT PRIMARY KEY,
+    lessonID INT,
+    content NVARCHAR(MAX), 
+ 	status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (lessonID) REFERENCES lessons(ID)
+);
+
+-- Tabla: user
+CREATE TABLE [user] (
+    ID INT PRIMARY KEY,
+    username VARCHAR(25),
+    firstName VARCHAR(40),
+    lastName VARCHAR(40),
+    mail VARCHAR(100),
+    password VARCHAR(50),
+    role INT,
+    proficiencyID INT,
+ 	status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (role) REFERENCES role(ID),
+    FOREIGN KEY (proficiency) REFERENCES levels(ID)
+);
+
+-- Tabla: notes
+CREATE TABLE notes (
+    ID INT PRIMARY KEY,
+    userID INT,
+    lessonID INT,
+    date DATE,
+    name NVARCHAR(255),
+    title NVARCHAR(255),
+    content VARCHAR(MAX),
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (userID) REFERENCES [user](ID),
+    FOREIGN KEY (lessonID) REFERENCES lessons(ID)
+);
+
+-- Tabla: categories
+CREATE TABLE categories (
+    ID INT PRIMARY KEY,
+    description VARCHAR(50),
+status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+-- Tabla: rewards
+CREATE TABLE rewards (
+    rewardID INT PRIMARY KEY,
+    userID INT,
+    categoryID INT,
+    description VARCHAR(400),
+status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL,
+    FOREIGN KEY (userID) REFERENCES [user](ID),
+    FOREIGN KEY (categoryID) REFERENCES categories(ID)
+);
+CREATE TABLE catalog (
+    ID INT PRIMARY KEY,
+    typec VARCHAR(50) NOT NULL,
+    code VARCHAR(50) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    showName VARCHAR(100) NULL,
+    isActive BIT DEFAULT 1,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);

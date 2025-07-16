@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
-import 'package:project_base_app/modules/courses/course.dart';
-import 'package:project_base_app/modules/courses/course_detail_page.dart';
+import 'package:project_base_app/modules/courses/classes/course.dart';
+import 'package:project_base_app/modules/courses/theme_courses_detail.dart';
 import 'package:project_base_app/modules/layout/space_background_layout.dart';
 
 class ThemesMenu extends StatefulWidget {
@@ -12,36 +12,111 @@ class ThemesMenu extends StatefulWidget {
 }
 
 class _ThemesMenuState extends State<ThemesMenu> {
-  final courses = [
-    Course(
+  final themeCourses = [
+    ThemeCourse(
       title: 'THEME 1',
-      status: 'Completed',
+      status: 'completed',
       content: 'Learn about common error vocabulary',
-      subItems: [
-        SubCourse(title: 'Course 1', subtitle: 'Sub 1', content: 'Details'),
-        SubCourse(title: 'Course 2', subtitle: 'Sub 2', content: 'Details 2'),
+      courses: [
+        Course(
+          title: 'Course 1',
+          subtitle: 'Sub 1',
+          content: 'Details',
+          lessons: [
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: 'content is undefined',
+              isUnlocked: true,
+              lessonContent: [],
+            ),
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: 'content is undefined',
+              isUnlocked: false,
+              lessonContent: [],
+            ),
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: 'content is undefined',
+              isUnlocked: false,
+              lessonContent: [],
+            ),
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: 'content is undefined',
+              isUnlocked: false,
+              lessonContent: [],
+            ),
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: 'content is undefined',
+              isUnlocked: false,
+              lessonContent: [],
+            ),
+          ],
+        ),
+        Course(
+          title: 'Course 2',
+          subtitle: 'Sub 2',
+          content: 'Details 2',
+          lessons: [
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: '',
+              isUnlocked: true,
+              lessonContent: [],
+            ),
+          ],
+        ),
+        Course(
+          title: 'Course 3',
+          subtitle: 'Sub 2',
+          content: 'Details 2',
+          lessons: [
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: '',
+              isUnlocked: true,
+              lessonContent: [],
+            ),
+            Lesson(
+              title: 'title',
+              subtitle: 'subtitle',
+              content: '',
+              isUnlocked: true,
+              lessonContent: [],
+            ),
+          ],
+        ),
       ],
     ),
-    Course(
+    ThemeCourse(
       title: 'THEME 2',
-      status: 'Completed',
+      status: 'Courses: 0',
       content: 'Learn about vocabulary',
-      subItems: [
-        SubCourse(title: 'Course 1', subtitle: 'Sub 1', content: 'Details'),
-        SubCourse(title: 'Course 2', subtitle: 'Sub 2', content: 'Details 2'),
-      ],
-    ),
-    Course(
-      title: 'THEME 3',
-      status: 'Completed',
-      content: 'Learn about vocabulary',
-      subItems: [
-        SubCourse(title: 'Course 1', subtitle: 'Sub 1', content: 'Details'),
-        SubCourse(title: 'Course 2', subtitle: 'Sub 2', content: 'Details 2'),
+      courses: [
+        Course(
+          title: 'Course 1',
+          subtitle: 'Sub 1',
+          content: 'Details',
+          lessons: [],
+        ),
+        Course(
+          title: 'Course 1',
+          subtitle: 'Sub 1',
+          content: 'Details',
+          lessons: [],
+        ),
       ],
     ),
   ];
-
   final controller = PageController(viewportFraction: 0.60);
   double currentPage = 0.0;
 
@@ -85,9 +160,9 @@ class _ThemesMenuState extends State<ThemesMenu> {
                 width: 500,
                 child: PageView.builder(
                   controller: controller,
-                  itemCount: courses.length,
+                  itemCount: themeCourses.length,
                   itemBuilder: (context, index) {
-                    final item = courses[index];
+                    final item = themeCourses[index];
                     final isActive = index == currentPage.round();
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -97,8 +172,9 @@ class _ThemesMenuState extends State<ThemesMenu> {
                             context,
                             MaterialPageRoute(
                               builder:
-                                  (context) =>
-                                      CourseDetailPage(item: courses[index]),
+                                  (context) => ThemeCoursesDetail(
+                                    item: themeCourses[index],
+                                  ),
                             ),
                           );
                         },
@@ -146,8 +222,8 @@ class _ThemesMenuState extends State<ThemesMenu> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    item.subItems.isNotEmpty
-                                        ? item.subItems[0].title
+                                    item.courses.isNotEmpty
+                                        ? item.courses[0].title
                                         : 'No subitem',
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
