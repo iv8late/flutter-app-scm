@@ -5,7 +5,7 @@ import 'package:project_base_app/modules/courses/classes/course.dart';
 import 'package:project_base_app/modules/layout/space_background_layout.dart';
 
 class CourseLessonsDetail extends StatelessWidget {
-  final Course item;
+  final CourseScm item;
 
   const CourseLessonsDetail({super.key, required this.item});
 
@@ -77,7 +77,7 @@ class CourseLessonsDetail extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    item.content,
+                    item.description,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -122,17 +122,16 @@ class CourseLessonsDetail extends StatelessWidget {
                         final sub = item.lessons[index];
                         return GestureDetector(
                           onTap: () {
-                            if (sub.isUnlocked) {
-                              Navigator.pushNamed(
-                                context,
-                                '/lesson',
-                                arguments: item.lessons[index],
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Lección bloqueada')),
-                              );
-                            }
+                            Navigator.pushNamed(
+                              context,
+                              '/lesson',
+                              arguments: item.lessons[index],
+                            );
+                            // else {
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     SnackBar(content: Text('Lección bloqueada')),
+                            //   );
+                            // }
                           },
                           child: Container(
                             margin: EdgeInsets.only(
@@ -173,7 +172,7 @@ class CourseLessonsDetail extends StatelessWidget {
                                                 ),
                                               ),
                                               Text(
-                                                sub.content,
+                                                sub.description,
                                                 style: TextStyle(
                                                   color: Colors.white70,
                                                   fontSize: screenWidth * 0.03,

@@ -19,18 +19,18 @@ class AppRoutes {
     '/register': (context) => const RegisterScreen(),
     '/lesson':
         (context) => LessonTemplatesMain(
-          item: ModalRoute.of(context)!.settings.arguments as Lesson,
+          item: ModalRoute.of(context)!.settings.arguments as LessonScm,
         ),
     '/home': (context) => const HomeScreen(),
     '/themes': (context) => const ThemesMenu(),
     // '/course': (context) => const CoursePreview(),
     '/courseDetail':
         (context) => CourseLessonsDetail(
-          item: ModalRoute.of(context)!.settings.arguments as Course,
+          item: ModalRoute.of(context)!.settings.arguments as CourseScm,
         ),
     '/themeCourses':
         (context) => ThemeCoursesDetail(
-          item: ModalRoute.of(context)!.settings.arguments as ThemeCourse,
+          item: ModalRoute.of(context)!.settings.arguments as ThemeScm,
         ),
   };
 

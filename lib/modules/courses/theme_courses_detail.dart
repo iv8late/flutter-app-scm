@@ -3,7 +3,7 @@ import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/courses/classes/course.dart';
 
 class ThemeCoursesDetail extends StatelessWidget {
-  final ThemeCourse item;
+  final ThemeScm item;
   final TextEditingController _searchController = TextEditingController();
 
   ThemeCoursesDetail({super.key, required this.item});
@@ -14,7 +14,7 @@ class ThemeCoursesDetail extends StatelessWidget {
       backgroundColor: AppTheme.white,
       body: CustomScrollView(
         slivers: [
-          // SliverAppBar con borde superior
+          // SliverAppBar con fondo e imagen
           SliverAppBar(
             backgroundColor: AppTheme.white,
             expandedHeight: 200.0,
@@ -29,25 +29,30 @@ class ThemeCoursesDetail extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: Text(
-                        item.title,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: AppTheme.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            Shadow(
-                              color: AppTheme.darkBlue,
-                              offset: Offset(1, 1),
-                              blurRadius: 10,
-                            ),
-                            Shadow(
-                              color: AppTheme.darkBlue,
-                              offset: Offset(1, 1),
-                              blurRadius: 20,
-                            ),
-                          ],
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          item.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: AppTheme.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            shadows: [
+                              Shadow(
+                                color: AppTheme.darkBlue,
+                                offset: Offset(1, 1),
+                                blurRadius: 10,
+                              ),
+                              Shadow(
+                                color: AppTheme.darkBlue,
+                                offset: Offset(1, 1),
+                                blurRadius: 20,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -61,13 +66,13 @@ class ThemeCoursesDetail extends StatelessWidget {
                     'assets/bg/space_wallpaper.jpeg',
                     fit: BoxFit.cover,
                   ),
-                  // Filtro oscuro sobre la imagen
                   Container(color: Colors.black.withAlpha(100)),
                 ],
               ),
             ),
           ),
 
+          // Contenido principal
           SliverList(
             delegate: SliverChildListDelegate([
               Padding(
@@ -77,36 +82,15 @@ class ThemeCoursesDetail extends StatelessWidget {
                   children: [
                     const SizedBox(height: 20),
                     Text(
-                      item.content,
+                      item.description,
                       style: const TextStyle(
                         fontSize: 14,
                         color: AppTheme.darkBlue,
                       ),
                     ),
                     const SizedBox(height: 30),
-                    // TextField(
-                    //   decoration: InputDecoration(
-                    //     contentPadding: const EdgeInsets.symmetric(
-                    //       horizontal: 20,
-                    //       vertical: 18,
-                    //     ),
-                    //     hintText: 'Search a course...',
-                    //     hintStyle: TextStyle(
-                    //       color: AppTheme.darkBlue,
-                    //       fontSize: 16,
-                    //     ),
-                    //     suffixIcon: Icon(
-                    //       Icons.import_contacts_outlined,
-                    //       color: AppTheme.darkBlue,
-                    //     ),
-                    //     enabledBorder: UnderlineInputBorder(
-                    //       borderSide: BorderSide(color: Colors.transparent),
-                    //     ),
-                    //     focusedBorder: UnderlineInputBorder(
-                    //       borderSide: BorderSide(color: AppTheme.blue),
-                    //     ),
-                    //   ),
-                    // ),
+
+                    // const TextField() opcional
                     const SizedBox(height: 32),
                     const Text(
                       "Cursos incluidos:",
@@ -123,7 +107,7 @@ class ThemeCoursesDetail extends StatelessWidget {
             ]),
           ),
 
-          // Grid con los sub-cursos
+          // Grid de subcursos
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             sliver: SliverGrid(
@@ -153,26 +137,31 @@ class ThemeCoursesDetail extends StatelessWidget {
                     ),
                     color: AppTheme.white,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 10),
                           Text(
                             sub.title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: AppTheme.darkBlue,
                             ),
                           ),
-                          const SizedBox(height: 4),
-                          Text(
-                            sub.content,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: AppTheme.darkBlue,
+                          const SizedBox(height: 6),
+                          Expanded(
+                            child: Text(
+                              sub.description,
+                              maxLines: 4,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                color: AppTheme.darkBlue,
+                              ),
                             ),
                           ),
                         ],

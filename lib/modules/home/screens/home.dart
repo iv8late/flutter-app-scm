@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                 child: Container(
-                  color: AppTheme.primaryDark.withAlpha(
+                  color: Colors.black.withAlpha(
                     160,
                   ), // Ajusta la opacidad para más oscuridad
                 ),
@@ -64,15 +64,36 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: 40,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 10.0, // radio de difuminado
+                            color: Colors.black,
+                            offset: Offset(
+                              4.0,
+                              4.0,
+                            ), // desplazamiento de la sombra
+                          ),
+                        ],
                       ),
                     ),
-
                     Text(
                       'Ready to explore?',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 18.0,
+                            color: Colors.black,
+                            offset: Offset(2.0, 2.0),
+                          ),
+                          Shadow(
+                            blurRadius: 18.0,
+                            color: Colors.black,
+                            offset: Offset(6.0, 6.0),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -148,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 70,
                           icon: Icons.psychology_alt_outlined,
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 8),
                         diamondButton(
                           onTap: () {},
                           borderColor: AppTheme.darkPurple,

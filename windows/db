@@ -1,29 +1,10 @@
--- Tabla: role
-CREATE TABLE role (
-    ID INT PRIMARY KEY,
-    description VARCHAR(40),
-    createdAt DATETIME DEFAULT GETDATE(),
-    updatedAt DATETIME NULL,
-    createdBy INT NULL,
-    updatedBy INT NULL
-);
-
--- Tabla: stages
-CREATE TABLE stages (
-    ID INT PRIMARY KEY,
-    description VARCHAR(50),
-    createdAt DATETIME DEFAULT GETDATE(),
-    updatedAt DATETIME NULL,
-    createdBy INT NULL,
-    updatedBy INT NULL
-);
 
 -- Tabla: themes
 CREATE TABLE themes (
     ID INT PRIMARY KEY,
-  
-    stageID INT,
+    title VARCHAR(50),
     description VARCHAR(50),
+    stageID INT, 
  	status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME NULL,
@@ -35,36 +16,40 @@ CREATE TABLE themes (
 -- Tabla: courses
 CREATE TABLE courses (
     ID INT PRIMARY KEY,
+    proficiencyID INT,
+    title VARCHAR(50),
+    description VARCHAR(50),
     stageID INT,
     themeID INT,
-    description VARCHAR(50),
-status  BIT,
+    status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME NULL,
     createdBy INT NULL,
     updatedBy INT NULL,
+    FOREIGN KEY (proficiencyID) REFERENCES proficiency(ID),
     FOREIGN KEY (stageID) REFERENCES stages(ID),
     FOREIGN KEY (themeID) REFERENCES themes(ID)
 );
 
 -- Tabla: levels
-CREATE TABLE levels (
-    ID INT PRIMARY KEY,
-    courseID INT,
-    stageID INT,
-    description VARCHAR(50),
-    createdAt DATETIME DEFAULT GETDATE(),
-    updatedAt DATETIME NULL,
-    createdBy INT NULL,
-    updatedBy INT NULL,
-    FOREIGN KEY (courseID) REFERENCES courses(ID),
-    FOREIGN KEY (stageID) REFERENCES stages(ID)
-);
+-- CREATE TABLE levels (
+--     ID INT PRIMARY KEY,
+--     courseID INT,
+--     stageID INT,
+--     description VARCHAR(50),
+--     status  BIT,
+--     createdAt DATETIME DEFAULT GETDATE(),
+--     updatedAt DATETIME NULL,
+--     createdBy INT NULL,
+--     updatedBy INT NULL,
+--     FOREIGN KEY (courseID) REFERENCES courses(ID),
+--     FOREIGN KEY (stageID) REFERENCES stages(ID)
+-- );
 
 -- Tabla: types
-CREATE TABLE types (
+CREATE TABLE forTypes (
     ID INT PRIMARY KEY,
-    code varchar(3)
+    code varchar(3),
     description VARCHAR(50),
  	status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
@@ -76,22 +61,27 @@ CREATE TABLE types (
 -- Tabla: lessons
 CREATE TABLE lessons (
     ID INT PRIMARY KEY,
-    levelID INT,
-    typeID INT,
+    order INT,
+    courseID INT,
+    title VARCHAR(50),
     description VARCHAR(50),
+    stageID INT,
  	status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME NULL,
     createdBy INT NULL,
     updatedBy INT NULL,
-    FOREIGN KEY (levelID) REFERENCES levels(ID),
-    FOREIGN KEY (typeID) REFERENCES types(ID)
+     FOREIGN KEY (stageID) REFERENCES stages(ID),
+    FOREIGN KEY (CourseID) REFERENCES courses(ID),
+   
 );
 
 -- Tabla: lessonsContent
 CREATE TABLE lessonsContent (
     ID INT PRIMARY KEY,
     lessonID INT,
+    typeID INT,
+    title VARCHAR(50),
     content NVARCHAR(MAX), 
  	status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
@@ -99,10 +89,51 @@ CREATE TABLE lessonsContent (
     createdBy INT NULL,
     updatedBy INT NULL,
     FOREIGN KEY (lessonID) REFERENCES lessons(ID)
+     FOREIGN KEY (typeID) REFERENCES types(ID)
 );
 
+-- Tabla: proficiency
+CREATE TABLE proficiency (
+    ID INT PRIMARY KEY,
+    code varchar (3),
+    description VARCHAR(40),
+    status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+
+
+-- Tabla: role
+CREATE TABLE role (
+    ID INT PRIMARY KEY,
+    code varchar (3),
+    description VARCHAR(40),
+    status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+-- Tabla: stages
+CREATE TABLE stages (
+    ID INT PRIMARY KEY,
+    code varchar (3),
+    description VARCHAR(50),
+    status  BIT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME NULL,
+    createdBy INT NULL,
+    updatedBy INT NULL
+);
+
+
+
 -- Tabla: user
-CREATE TABLE [user] (
+CREATE TABLE user (
     ID INT PRIMARY KEY,
     username VARCHAR(25),
     firstName VARCHAR(40),
@@ -117,7 +148,7 @@ CREATE TABLE [user] (
     createdBy INT NULL,
     updatedBy INT NULL,
     FOREIGN KEY (role) REFERENCES role(ID),
-    FOREIGN KEY (proficiency) REFERENCES levels(ID)
+    FOREIGN KEY (proficiency) REFERENCES proficiency(ID)
 );
 
 -- Tabla: notes
@@ -141,7 +172,7 @@ CREATE TABLE notes (
 CREATE TABLE categories (
     ID INT PRIMARY KEY,
     description VARCHAR(50),
-status  BIT,
+    status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME NULL,
     createdBy INT NULL,
@@ -154,7 +185,7 @@ CREATE TABLE rewards (
     userID INT,
     categoryID INT,
     description VARCHAR(400),
-status  BIT,
+    status  BIT,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME NULL,
     createdBy INT NULL,
