@@ -1,0 +1,79 @@
+interface AngularLessonModule {
+  title: {
+    en: string;
+    es: string;
+  };
+  textContents: {
+    concept?: {
+      en: string;
+      es: string;
+    };
+    introduction?: {
+      en: string;
+      es: string;
+    };
+    contents?: Array<{
+      en: string;
+      es: string;
+    }>;
+    table?: Array<{
+      element: {
+        en: string;
+        es: string;
+      };
+      analogy: {
+        en: string;
+        es: string;
+      };
+      description: {
+        en: string;
+        es: string;
+      };
+    }>;
+    ending?: Array<{
+      en: string;
+      es: string;
+    }>;
+    exercise?: Array<
+      | {
+          type: "options";
+          completed: boolean;
+          instruction: {
+            en: string;
+            es: string;
+          };
+          options: Array<{
+            text: string;
+            correct: boolean;
+            output: string;
+          }>;
+        }
+      | {
+          type: "input";
+          completed: boolean;
+          instruction: {
+            en: string;
+            es: string;
+          };
+          input: string;
+          output: string;
+          eoutput?: string;
+        }
+    >;
+  };
+  vocabulary?: Array<{
+    term: string;
+    definition: {
+      en: string;
+      es: string;
+    };
+  }>;
+  imageUrl?: string;
+  backgroundColor?: string;
+  audioUrl?: string;
+  avatar?: {
+    name: string;
+    imageUrl: string;
+    position: "bottomLeft" | "bottomRight" | "topLeft" | "topRight";
+  };
+}

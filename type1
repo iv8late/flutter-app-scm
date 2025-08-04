@@ -1,0 +1,200 @@
+[
+  {
+    "title": {
+      "en": "Introduction to Angular",
+      "es": "Introducción a Angular "
+    },
+    "textContents": {
+      "concept": {
+        "en": "Angular is a **framework** for building web applications, based on components.",
+        "es": "Angular es un **marco de trabajo** para la realización de aplicaciones web, basado en componentes. "
+      },
+      "introduction": {
+        "en": "Let's get familiar with the basic concepts.",
+        "es": "Vamos a familiarizarnos con los conceptos bases.  "
+      },
+      "contents": [
+        {
+          "en": "A **component** is a part or element that is part of a larger whole.",
+          "es": "Un **componente** es una parte o elemento que forma parte de un todo más grande."
+        },
+        {
+          "en": "In Angular, a component is made up of 3 types of files",
+          "es": "En Angular el componente se conforma de 3 elementos/tipos de archivos."
+        },
+        {
+          "en": "CSS, HTML, and TS.",
+          "es": "CSS, HTML, Y TS. "
+        },
+        {
+          "en": "HTML structures the page of a website",
+          "es": ".html es el archivo que permite estructura el cuerpo de la página web"
+        },
+        {
+          "en": "CSS is the file that adds styles to the HTML.",
+          "es": ".css es el archivo que le da estilos al .html"
+        },
+        {
+          "en": "And the TS file contains the logic that gives functionality to the HTML.",
+          "es": "y el .ts contiene la lógica que permite al html tener funcionalidad."
+        }
+      ]
+    },
+    "imageUrl": "link",
+    "backgroundColor": "#FFF3E0",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    },
+    "vocabulary": [
+      {
+        "term": "component",
+        "definition": {
+          "es": "Una parte reutilizable de una aplicación Angular que contiene HTML, CSS y lógica (TS).",
+          "en": "A reusable part of an Angular app containing HTML, CSS, and logic (TS)."
+        }
+      },
+      {
+        "term": "framework",
+        "definition": {
+          "es": "Una estructura que facilita el desarrollo de software.",
+          "en": "A structure that helps in building software applications."
+        }
+      },
+      {
+        "term": "npm",
+        "definition": {
+          "es": "Gestor de paquetes de Node.js para instalar herramientas.",
+          "en": "Node.js package manager used to install tools."
+        }
+      },
+      {
+        "term": "Node.js",
+        "definition": {
+          "es": "Entorno que permite ejecutar JavaScript fuera del navegador.",
+          "en": "Environment that allows JavaScript to run outside the browser."
+        }
+      }
+    ]
+  },
+  {
+    "title": {
+      "en": "Installing Angular",
+      "es": "Instalación de Angular"
+    },
+    "textContents": {
+      "introduction": {
+        "en": "Before creating a project, we need to get familiar with these concepts.",
+        "es": "Antes de crear un proyecto. Debemos conocer familiarizarnos con estos conceptos "
+      },
+      "contents": [
+        {
+          "en": "To install Angular, Node.js is required—it's the JavaScript runtime environment.",
+          "es": "Pues instalar Angular se necesita Node.js, el entorno de ejecución de JavaScript"
+        },
+        {
+          "en": "Let's look at the following analogy.",
+          "es": "Veamos la siguiente analogía."
+        }
+      ],
+      "table": [
+        {
+          "element": {
+            "en": "JavaScript",
+            "es": "JavaScript"
+          },
+          "analogy": {
+            "en": "🔧 The language used to build the car",
+            "es": "🔧 El lenguaje para construir carros"
+          },
+          "description": {
+            "en": "The programming language",
+            "es": "Es el lenguaje de programación"
+          }
+        },
+        {
+          "element": {
+            "en": "Node.js",
+            "es": "Node.js"
+          },
+          "analogy": {
+            "en": "🚗 The car engine",
+            "es": "🚗 El motor del carro"
+          },
+          "description": {
+            "en": "Executes JavaScript outside the browser",
+            "es": "Ejecuta JavaScript fuera del navegador"
+          }
+        },
+        {
+          "element": {
+            "en": "npm",
+            "es": "npm"
+          },
+          "analogy": {
+            "en": "🛒 The parts store",
+            "es": "🛒 La tienda de repuestos"
+          },
+          "description": {
+            "en": "Installs tools like Angular",
+            "es": "Instala herramientas como Angular"
+          }
+        },
+        {
+          "element": {
+            "en": "Angular CLI",
+            "es": "Angular CLI"
+          },
+          "analogy": {
+            "en": "⚙️ A tool you install to work on the car",
+            "es": "⚙️ Una herramienta que compras para mejorar el carro"
+          },
+          "description": {
+            "en": "A utility to work with Angular projects",
+            "es": "Una utilidad para trabajar con proyectos Angular"
+          }
+        }
+      ]
+    },
+    "vocabulary": [
+      {
+        "term": "npm",
+        "definition": {
+          "es": "Gestor de paquetes de Node.js para instalar herramientas.",
+          "en": "Node.js package manager, used to install tools."
+        }
+      },
+      {
+        "term": "Node.js",
+        "definition": {
+          "es": "Entorno que permite ejecutar JavaScript fuera del navegador.",
+          "en": "Environment that allows JavaScript to run outside the browser."
+        }
+      },
+      {
+        "term": "analogía",
+        "definition": {
+          "es": "Comparación entre dos cosas distintas que tienen algo en común, usada para explicar ideas complejas.",
+          "en": "A comparison between two different things that share similarities, used to explain complex ideas."
+        }
+      },
+      {
+        "term": "engine",
+        "definition": {
+          "es": "Motor o parte principal que ejecuta acciones en un sistema o aplicación.",
+          "en": "The main part that drives operations in a system or application, like a 'motor' for software."
+        }
+      }
+    ],
+    "imageUrl": "https://your-cdn.com/angular-errors.png",
+    "backgroundColor": "#FFF3E0",
+    "audioUrl": "https://your-cdn.com/audio/angular_errors_intro.mp3",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "https://your-cdn.com/avatar_lina.png",
+      "position": "bottomLeft"
+    }
+  }
+]

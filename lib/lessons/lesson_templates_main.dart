@@ -25,9 +25,9 @@ class _LessonTemplatesMainState extends State<LessonTemplatesMain> {
       case 1:
         return LessonType.introduction; // `1` corresponde a Introduction
       case 2:
-        return LessonType.code; // `2` corresponde a Code Lesson
+        return LessonType.input; // `2` corresponde a Code Lesson
       case 3:
-        return LessonType.input; // `3` corresponde a Input Lesson
+        return LessonType.code; // `3` corresponde a Input Lesson
       default:
         return LessonType.introduction; // Default to Introduction
     }
@@ -50,7 +50,6 @@ class _LessonTemplatesMainState extends State<LessonTemplatesMain> {
         }).toList();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Lecciones')),
       body: Stack(
         children: [
           // Página de lecciones

@@ -10,13 +10,10 @@ Future<GenericResponse<List<ThemeScm>>> fetchCourse() async {
     );
 
     if (response.statusCode == 200) {
-      // Ahora, decodificamos la respuesta JSON
       final Map<String, dynamic> decodedResponse = json.decode(response.body);
 
-      // Aseguramos que la clave 'data' exista y sea una lista
       final List<dynamic> data = decodedResponse['data'];
 
-      // Convertimos la lista de mapas en una lista de objetos ThemeScm
       List<ThemeScm> themes =
           data.map((item) => ThemeScm.fromJson(item)).toList();
 

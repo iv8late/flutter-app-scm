@@ -109,77 +109,32 @@ class LessonContentScm {
   });
 
   factory LessonContentScm.fromJson(Map<String, dynamic> json) {
+    final rawContent = json['content'];
+    Map<String, dynamic> parsedContent = {};
+
+    if (rawContent is String) {
+      try {
+        final decoded = jsonDecode(rawContent);
+        if (decoded is Map<String, dynamic>) {
+          parsedContent = decoded;
+        } else {
+          // No es un JSON válido, lo almacenamos como texto plano
+          parsedContent = {'text': rawContent};
+        }
+      } catch (e) {
+        // No se puede decodificar, almacenamos el string como está
+        parsedContent = {'text': rawContent};
+      }
+    } else if (rawContent is Map<String, dynamic>) {
+      parsedContent = rawContent;
+    }
+
     return LessonContentScm(
       id: json['id'],
       typeId: json['typeId'],
       order: json['order'],
       lessonId: json['lessonId'],
-      content:
-          json['content'] is String
-              ? jsonDecode(json['content']) // <== AQUÍ DECODIFICAMOS
-              : json['content'] ?? {},
+      content: parsedContent,
     );
   }
-}
-
-class ThemeCourse {
-  final String title;
-  final String status;
-  final String content;
-  final List<Course> courses;
-
-  ThemeCourse({
-    required this.title,
-    required this.status,
-    required this.content,
-    required this.courses,
-  });
-}
-
-class Course {
-  final String title;
-  final String description;
-  final String content;
-  final List<Lesson> lessons;
-
-  Course({
-    required this.title,
-    required this.description,
-    required this.content,
-    required this.lessons,
-  });
-}
-
-class Lesson {
-  final String title;
-  final String description;
-  final String content;
-  final List<LessonContent> lessonContent;
-  final bool isUnlocked;
-
-  Lesson({
-    required this.title,
-    required this.description,
-    required this.content,
-    required this.lessonContent,
-    this.isUnlocked = true,
-  });
-}
-
-class LessonContent {
-  final int id;
-  final int typeId;
-  final String title;
-  final String subtitle;
-  final String content;
-  final bool isUnlocked;
-
-  LessonContent({
-    required this.id,
-    required this.typeId, // TYPE OR CODE,
-    required this.title,
-    required this.subtitle,
-    required this.content,
-    required this.isUnlocked,
-  });
 }
