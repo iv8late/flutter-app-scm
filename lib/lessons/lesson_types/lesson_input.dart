@@ -52,10 +52,16 @@ class _InputLessonState extends State<InputLesson> {
               ),
               const SizedBox(height: 16),
 
-              if (data.textContents.introduction != null)
-                Text(
-                  data.textContents.introduction!.es,
-                  style: const TextStyle(fontSize: 16, color: Colors.white),
+              if (data.textContents.introduction != null &&
+                  data.textContents.introduction!.isNotEmpty)
+                ...data.textContents.introduction!.map(
+                  (text) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                      text.es,
+                      style: const TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
                 ),
 
               const SizedBox(height: 16),
@@ -239,6 +245,38 @@ class _InputLessonState extends State<InputLesson> {
                   return const SizedBox.shrink();
                 }
               }),
+
+              if (data.textContents.ending != null &&
+                  data.textContents.ending!.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(top: 32),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        ' =):',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ...data.textContents.ending!.map(
+                        (text) => Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Text(
+                            text.es,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),

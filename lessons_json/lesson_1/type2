@@ -5,10 +5,10 @@
             "es": "Instalación de Angular"
         },
         "textContents": {
-            "introduction": {
+            "introduction":[ {
                 "en": "Now we are going to install Angular.",
                 "es": "Ahora podemos a instalar Angular"
-            },
+            }],
             "contents": [
                 {
                     "en": "Open your system terminal and **run** the following command:",
@@ -83,10 +83,10 @@
             "es": "Verificar versión de Angular"
         },
         "textContents": {
-            "introduction": {
+            "introduction":[ {
                 "en": " ",
                 "es": "Para comprobar la instalación correcta de angular vamos a verificar la versión"
-            },
+            }],
             "ending": [
                 {
                     "en": " ",

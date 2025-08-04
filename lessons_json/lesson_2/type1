@@ -1,0 +1,231 @@
+[
+  {
+    "title": {
+      "en": "Introduction to Angular",
+      "es": "Mi proyecto de Angular "
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": " ",
+          "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal. "
+        }
+      ],
+      "ending": [
+        {
+          "en": "",
+          "es": "Para el proyecto de las siguientes lecciones vamos a trabajar con CSS. "
+        }
+      ],
+      "contents": [
+        {
+          "en": "",
+          "es": " "
+        }
+      ],
+      "exercise": [
+        {
+          "type": "options",
+          "completed": false,
+          "instruction": {
+            "en": "Install Angular using npm. Choose the correct command:",
+            "es": "Creamos un proyecto. Elige el comando correcto:"
+          },
+          "options": [
+            {
+              "text": "npm create project-name",
+              "correct": false,
+              "output": "Error: Unknown command 'npm create'."
+            },
+            {
+              "text": "ng new project-name",
+              "correct": true,
+              "output": "LINK IMAGEN DE TERMINAL "
+            },
+            {
+              "text": "ng create project-name",
+              "correct": false,
+              "output": "Error: Unknown command 'ng create'. Did you mean 'ng add' ?"
+            },
+            {
+              "text": "node new project-name",
+              "correct": false,
+              "output": "Error: 'new' is not a recognized Node.js command."
+            }
+          ]
+        }
+      ]
+    },
+    "imageUrl": "link",
+    "backgroundColor": "#FFF3E0",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "title": {
+      "en": "Project Pre-settings",
+      "es": "Configuración previa del proyecto"
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "When creating a project, the following questions may appear. Let’s take a moment to understand these terms.",
+          "es": "Al momento de crear un proyecto, probablemente han de salir las siguientes preguntas. Vamos a entender un poco los siguientes términos."
+        }
+      ],
+      "ending": [
+        {
+          "en": "Now that you know what these terms mean, you'll be able to make better choices when setting up your project.",
+          "es": "Ahora que ya sabes lo que significan estos términos, podrás tomar mejores decisiones al configurar tu proyecto."
+        }
+      ],
+      "contents": [
+        {
+          "en": "**Which** stylesheet format would you like to use?",
+          "es": "¿Qué formato de **hoja de estilos** te gustaría usar?"
+        },
+        {
+          "en": "Stylesheet formats are different ways or languages to write **CSS** in web projects.",
+          "es": "Los formatos de hojas de estilos son diferentes formas o lenguajes para escribir estilos **CSS** en proyectos web."
+        },
+        {
+          "en": "Some formats like SCSS or LESS offer extra features that make writing styles easier and more powerful.",
+          "es": "Algunos formatos de hojas de estilos (como SCSS o LESS) tienen herramientas extra que hacen más fácil y potente escribir estilos."
+        },
+        {
+          "en": "The next common question you will see is:",
+          "es": "La siguiente pregunta que suele aparecer es:"
+        },
+        {
+          "en": "This asks if you want to turn on features that generate your web pages on the server or ahead of time for better **performance** and SEO.",
+          "es": "Esta pregunta es para saber si quieres activar funciones que generan las páginas web en el servidor o por adelantado para mejor rendimiento y SEO."
+        },
+        {
+          "en": "SEO stands for **Search Engine Optimization**. It is the set of techniques to make your website more visible and easy to find on search engines like Google.",
+          "es": "SEO significa **Search Engine Optimization**. Es el conjunto de técnicas para hacer que tu sitio web sea más visible y fácil de encontrar en buscadores como Google."
+        },
+        {
+          "en": "Good SEO helps your site rank higher in search results. To do this, search engines need to easily read the HTML content.",
+          "es": "Un buen SEO ayuda a que tu web aparezca más alto en los resultados de búsqueda. Para esto, los motores de búsqueda necesitan leer el contenido HTML fácilmente."
+        },
+        {
+          "en": "Let's see a comparison in the following table:",
+          "es": "Veamos una comparativa en la siguiente tabla:"
+        }
+      ]
+    },
+    "table": [
+      {
+        "element": {
+          "en": "SSR (Server-Side Rendering)",
+          "es": "SSR (Renderización en el Servidor)"
+        },
+        "example": {
+          "en": "Server builds page on every request.",
+          "es": "El servidor crea la página en cada **petición.**"
+        },
+        "description": {
+          "en": "Use for dynamic content and better SEO.",
+          "es": "Usa para contenido dinámico y mejor SEO."
+        }
+      },
+      {
+        "element": {
+          "en": "SSG (Static Site Generation)",
+          "es": "SSG (Generación de Sitios **Estáticos**)"
+        },
+        "example": {
+          "en": "Pages pre-built before deployment.",
+          "es": "Páginas creadas antes del despliegue."
+        },
+        "description": {
+          "en": "Use for mostly static sites and fast loading.",
+          "es": "Usa para sitios estáticos y carga rápida."
+        }
+      },
+      {
+        "element": {
+          "en": "Prerendering",
+          "es": "Prerendering"
+        },
+        "example": {
+          "en": "Pages generated ahead for SEO.",
+          "es": "Páginas generadas por adelantado para SEO."
+        },
+        "description": {
+          "en": "Use for specific pages needing SEO boost.",
+          "es": "Usa para páginas específicas que necesitan SEO."
+        }
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "stylesheet",
+        "definition": {
+          "es": "Archivo o formato utilizado para definir los estilos visuales (como colores, márgenes y tipografías) de una página web.",
+          "en": "A file or format used to define the visual styles (like colors, margins, and fonts) of a web page."
+        }
+      },
+      {
+        "term": "CSS",
+        "definition": {
+          "es": "Lenguaje utilizado para describir la presentación de un documento HTML. Controla el diseño, colores y estilos.",
+          "en": "A language used to describe the presentation of an HTML document. It controls layout, colors, and styles."
+        }
+      },
+      {
+        "term": "enable",
+        "definition": {
+          "es": "Activar o permitir una funcionalidad o característica en un sistema.",
+          "en": "To activate or allow a feature or functionality in a system."
+        }
+      },
+      {
+        "term": "Server-Side Rendering (SSR)",
+        "definition": {
+          "es": "Técnica en la que el contenido HTML de una página se genera en el servidor antes de enviarlo al navegador.",
+          "en": "A technique where a page's HTML content is generated on the server before being sent to the browser."
+        }
+      },
+      {
+        "term": "Static Site Generation (SSG)",
+        "definition": {
+          "es": "Proceso de generar páginas HTML estáticas durante el build, en lugar de generarlas en tiempo real.",
+          "en": "The process of generating static HTML pages at build time instead of on-demand."
+        }
+      },
+      {
+        "term": "Prerendering",
+        "definition": {
+          "es": "Técnica que genera páginas web por adelantado, antes de que el usuario las solicite.",
+          "en": "A technique that generates web pages ahead of time, before a user requests them."
+        }
+      },
+      {
+        "term": "Performance",
+        "definition": {
+          "es": "Velocidad y eficiencia con la que un sitio web carga y responde.",
+          "en": "The speed and efficiency with which a website loads and responds."
+        }
+      },
+      {
+        "term": "petición",
+        "definition": {
+          "es": "Solicitud que hace un cliente (como un navegador) para obtener datos o una página web del servidor.",
+          "en": "A request made by a client (like a browser) to get data or a web page from the server."
+        }
+      },
+      {
+        "term": "estático",
+        "definition": {
+          "es": "Contenido que no cambia y se entrega tal cual, sin generarse dinámicamente en cada acceso.",
+          "en": "Content that does not change and is delivered as-is, without being generated dynamically on each access."
+        }
+      }
+    ]
+  }
+]

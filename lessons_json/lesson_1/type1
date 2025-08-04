@@ -9,10 +9,42 @@
         "en": "Angular is a **framework** for building web applications, based on components.",
         "es": "Angular es un **marco de trabajo** para la realización de aplicaciones web, basado en componentes. "
       },
-      "introduction": {
-        "en": "Let's get familiar with the basic concepts.",
-        "es": "Vamos a familiarizarnos con los conceptos bases.  "
-      },
+      "introduction": [
+        {
+          "en": "Let's get familiar with the basic concepts.",
+          "es": "Vamos a familiarizarnos con los conceptos bases.  "
+        }
+      ],
+      "ending": [
+        {
+          "en": "Before continuing with the Angular installation, Node.js is required. If you don't have it installed, follow these steps:",
+          "es": "Antes de continuar con la instalación de Angular es necesario lo Node.js. Si no lo tienes estos son los pasos para la instalación:"
+        },
+        {
+          "en": "1. Go to the official website.",
+          "es": "1. Ir al sitio oficial."
+        },
+        {
+          "en": "Visit: https://nodejs.org",
+          "es": "Ve a: https://nodejs.org "
+        },
+        {
+          "en": "2. Download the installer.",
+          "es": "2. Descargar el instalador. "
+        },
+        {
+          "en": "You will see two versions: LTS (Long Term Support), recommended for most users. Choose LTS and download the installer for your operating system.",
+          "es": "Verás dos versiones: LTS (Long Term Support): recomendada para la mayoría de los usuarios. Elige LTS y descarga el instalador para tu sistema operativo. "
+        },
+        {
+          "en": "3. Run the installer.",
+          "es": "3. Ejecutar el instalador. "
+        },
+        {
+          "en": "Double-click the downloaded file. Accept the terms and conditions. Leave the default options and click Next until the installation is complete.",
+          "es": "Haz doble clic en el archivo descargado. Acepta los términos y condiciones.Deja las opciones por defecto y haz clic en Next hasta terminar."
+        }
+      ],
       "contents": [
         {
           "en": "A **component** is a part or element that is part of a larger whole.",
@@ -85,10 +117,10 @@
       "es": "Instalación de Angular"
     },
     "textContents": {
-      "introduction": {
+      "introduction":[ {
         "en": "Before creating a project, we need to get familiar with these concepts.",
         "es": "Antes de crear un proyecto. Debemos conocer familiarizarnos con estos conceptos "
-      },
+      }],
       "contents": [
         {
           "en": "To install Angular, Node.js is required—it's the JavaScript runtime environment.",

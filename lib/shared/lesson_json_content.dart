@@ -52,8 +52,8 @@ class LocalizedText {
 
 class TextContents {
   final LocalizedText? concept;
-  final LocalizedText? introduction;
-  final LocalizedText? ending;
+  final List<LocalizedText>? introduction;
+  final List<LocalizedText>? ending;
   final List<LocalizedText>? contents;
   final List<TableContent>? tableContent;
 
@@ -72,15 +72,13 @@ class TextContents {
               ? LocalizedText.fromJson(json['concept'])
               : null,
       introduction:
-          json['introduction'] != null
-              ? LocalizedText.fromJson(json['introduction'])
-              : null,
+          (json['introduction'] as List<dynamic>?)
+              ?.map((e) => LocalizedText.fromJson(e))
+              .toList(),
       ending:
-          json['ending'] != null
-              ? (json['ending'] is Map
-                  ? LocalizedText.fromJson(json['ending'])
-                  : null)
-              : null,
+           (json['ending'] as List<dynamic>?)
+              ?.map((e) => LocalizedText.fromJson(e))
+              .toList(),
       contents:
           (json['contents'] as List<dynamic>?)
               ?.map((e) => LocalizedText.fromJson(e))
