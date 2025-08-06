@@ -253,7 +253,212 @@
         "es": "El error significa que el control email no existe en el FormGroup definido."
       }
     }
+  },
+  {
+  "title": {
+    "en": "Quick Quiz: Understanding Angular Setup",
+    "es": "Quiz Rápido: Entendiendo la configuración de Angular"
+  },
+  "textContents": {
+    "introduction": [
+      {
+        "en": "Let’s test what you’ve learned so far about Angular CLI, Node.js, npm, and the analogies used.",
+        "es": "Vamos a poner a prueba lo que has aprendido sobre Angular CLI, Node.js, npm y las analogías utilizadas."
+      }
+    ],
+    "ending": [
+      {
+        "en": "Well done! You are one step closer to mastering Angular.",
+        "es": "¡Bien hecho! Estás un paso más cerca de dominar Angular."
+      }
+    ]
+  },
+  "exercise": [
+    {
+      "type": "options",
+      "instruction": {
+        "en": "Which command correctly installs Angular CLI globally using npm?",
+        "es": "¿Cuál comando instala correctamente Angular CLI de forma global usando npm?"
+      },
+      "options": [
+        {
+          "text": "npm install @angular/cli",
+          "correct": false,
+          "output": "❌ Missing the global flag `-g`. The CLI won't be available as a global command."
+        },
+        {
+          "text": "npm install -g @angular/cli",
+          "correct": true,
+          "output": "✅ Correct! You've globally installed Angular CLI."
+        },
+        {
+          "text": "ng install angular",
+          "correct": false,
+          "output": "❌ 'ng install' is not a valid Angular CLI command."
+        },
+        {
+          "text": "node install angular",
+          "correct": false,
+          "output": "❌ Use `npm`, not `node`, to install packages."
+        }
+      ]
+    },
+    {
+      "type": "options",
+      "instruction": {
+        "en": "In the analogy used, what role does npm play in an Angular project setup?",
+        "es": "En la analogía utilizada, ¿qué rol cumple npm en la configuración de un proyecto Angular?"
+      },
+      "options": [
+        {
+          "text": "The engine of the car",
+          "correct": false,
+          "output": "❌ No. That would be Node.js."
+        },
+        {
+          "text": "The parts store",
+          "correct": true,
+          "output": "✅ Correct! npm is the store that provides tools like Angular CLI."
+        },
+        {
+          "text": "The tool you use to build the car",
+          "correct": false,
+          "output": "❌ That’s the Angular CLI."
+        },
+        {
+          "text": "The programming language",
+          "correct": false,
+          "output": "❌ That would be JavaScript."
+        }
+      ]
+    },
+    {
+      "type": "options",
+      "instruction": {
+        "en": "Which of the following is true about Node.js?",
+        "es": "¿Cuál de las siguientes afirmaciones es verdadera sobre Node.js?"
+      },
+      "options": [
+        {
+          "text": "It is a framework for building UI components",
+          "correct": false,
+          "output": "❌ That's more like Angular or React."
+        },
+        {
+          "text": "It executes JavaScript outside the browser",
+          "correct": true,
+          "output": "✅ Correct! Node.js is a runtime for JavaScript outside the browser."
+        },
+        {
+          "text": "It manages JavaScript packages",
+          "correct": false,
+          "output": "❌ That's npm’s responsibility."
+        },
+        {
+          "text": "It installs the Angular CLI",
+          "correct": false,
+          "output": "❌ npm is used for installing packages like Angular CLI."
+        }
+      ]
+    },
+    {
+      "type": "options",
+      "instruction": {
+        "en": "Which term describes the utility to create and manage Angular projects from the command line?",
+        "es": "¿Qué término describe la utilidad para crear y gestionar proyectos Angular desde la terminal?"
+      },
+      "options": [
+        {
+          "text": "npm",
+          "correct": false,
+          "output": "❌ npm installs tools, but doesn't manage Angular projects directly."
+        },
+        {
+          "text": "JavaScript",
+          "correct": false,
+          "output": "❌ JavaScript is the language, not the utility."
+        },
+        {
+          "text": "Node.js",
+          "correct": false,
+          "output": "❌ Node.js runs the commands, but the utility is Angular CLI."
+        },
+        {
+          "text": "Angular CLI",
+          "correct": true,
+          "output": "✅ Correct! Angular CLI lets you create and manage Angular projects."
+        }
+      ]
+    },
+    {
+      "type": "options",
+      "instruction": {
+        "en": "What does the command `ng new my-app` do?",
+        "es": "¿Qué hace el comando `ng new my-app`?"
+      },
+      "options": [
+        {
+          "text": "It installs npm globally",
+          "correct": false,
+          "output": "❌ No. This command creates a new Angular project."
+        },
+        {
+          "text": "It initializes a new Angular project called my-app",
+          "correct": true,
+          "output": "✅ Correct! It scaffolds a new Angular project."
+        },
+        {
+          "text": "It runs an Angular application",
+          "correct": false,
+          "output": "❌ That would be `ng serve`."
+        },
+        {
+          "text": "It checks the Angular version",
+          "correct": false,
+          "output": "❌ That would be `ng version`."
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "npm",
+      "definition": {
+        "es": "Gestor de paquetes de Node.js para instalar herramientas.",
+        "en": "Node.js package manager, used to install tools."
+      }
+    },
+    {
+      "term": "Node.js",
+      "definition": {
+        "es": "Entorno que permite ejecutar JavaScript fuera del navegador.",
+        "en": "Environment that allows JavaScript to run outside the browser."
+      }
+    },
+    {
+      "term": "analogía",
+      "definition": {
+        "es": "Comparación entre dos cosas distintas que tienen algo en común, usada para explicar ideas complejas.",
+        "en": "A comparison between two different things that share similarities, used to explain complex ideas."
+      }
+    },
+    {
+      "term": "Angular CLI",
+      "definition": {
+        "es": "Herramienta para crear y gestionar proyectos Angular desde la terminal.",
+        "en": "Tool to create and manage Angular projects from the terminal."
+      }
+    }
+  ],
+  "imageUrl": "link",
+  "backgroundColor": "#FFF3E0",
+  "avatar": {
+    "name": "Lina",
+    "imageUrl": "link",
+    "position": "bottomLeft"
   }
+}
+
 
   
 ]
