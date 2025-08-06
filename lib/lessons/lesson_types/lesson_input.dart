@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/courses/classes/course.dart';
-import 'package:project_base_app/shared/lesson_json_content.dart' hide Table;
+import 'package:project_base_app/shared/lesson_json_content.dart';
 
 class InputLesson extends StatefulWidget {
   final LessonScm lesson;
@@ -27,10 +27,9 @@ class _InputLessonState extends State<InputLesson> {
 
   @override
   Widget build(BuildContext context) {
-    final exercisesRaw =
-        widget.content.content['textContents']?['exercise'] ?? [];
+    final exerciseRaw = widget.content.content['exercise'] ?? [];
     final exercises =
-        (exercisesRaw as List<dynamic>)
+        (exerciseRaw as List<dynamic>)
             .map((e) => Exercise.fromJson(e))
             .toList();
 
@@ -42,6 +41,7 @@ class _InputLessonState extends State<InputLesson> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Título principal
               Text(
                 data.title.es,
                 style: const TextStyle(
@@ -52,8 +52,8 @@ class _InputLessonState extends State<InputLesson> {
               ),
               const SizedBox(height: 16),
 
-              if (data.textContents.introduction != null &&
-                  data.textContents.introduction!.isNotEmpty)
+              // Introducción
+              if (data.textContents.introduction?.isNotEmpty ?? false)
                 ...data.textContents.introduction!.map(
                   (text) => Padding(
                     padding: const EdgeInsets.only(bottom: 8),
@@ -66,9 +66,8 @@ class _InputLessonState extends State<InputLesson> {
 
               const SizedBox(height: 16),
 
-              // Mostrar tabla de analogías
-              if (data.textContents.tableContent != null &&
-                  data.textContents.tableContent!.isNotEmpty)
+              // Tabla de analogías
+              if (data.tableContent?.isNotEmpty ?? false)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -117,7 +116,7 @@ class _InputLessonState extends State<InputLesson> {
                             ),
                           ],
                         ),
-                        ...data.textContents.tableContent!.map(
+                        ...data.tableContent!.map(
                           (row) => TableRow(
                             children: [
                               Padding(
@@ -130,7 +129,7 @@ class _InputLessonState extends State<InputLesson> {
                               Padding(
                                 padding: const EdgeInsets.all(8),
                                 child: Text(
-                                  row.analogy.es,
+                                  row.example.es,
                                   style: const TextStyle(color: Colors.white),
                                 ),
                               ),
@@ -151,7 +150,7 @@ class _InputLessonState extends State<InputLesson> {
 
               const SizedBox(height: 24),
 
-              // Mostrar ejercicios
+              // Ejercicios
               ...exercises.map((ex) {
                 if (ex.type == 'options') {
                   return Column(
@@ -246,15 +245,15 @@ class _InputLessonState extends State<InputLesson> {
                 }
               }),
 
-              if (data.textContents.ending != null &&
-                  data.textContents.ending!.isNotEmpty)
+              // Final
+              if (data.textContents.ending?.isNotEmpty ?? false)
                 Padding(
                   padding: const EdgeInsets.only(top: 32),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        ' =):',
+                        '😊 Conclusión:',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

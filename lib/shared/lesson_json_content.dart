@@ -2,6 +2,7 @@ class LessonContentData {
   final LocalizedText title;
   final TextContents textContents;
   final List<Exercise>? exercises;
+  final List<TableContent>? tableContent;
   final List<VocabularyItem>? vocabulary;
   final String? imageUrl;
   final String? backgroundColor;
@@ -12,6 +13,7 @@ class LessonContentData {
     required this.title,
     required this.textContents,
     this.exercises,
+    this.tableContent,
     this.vocabulary,
     this.imageUrl,
     this.backgroundColor,
@@ -26,6 +28,10 @@ class LessonContentData {
       exercises:
           (json['textContents']?['exercise'] as List<dynamic>?)
               ?.map((e) => Exercise.fromJson(e))
+              .toList(),
+      tableContent:
+          (json['table'] as List<dynamic>?)
+              ?.map((e) => TableContent.fromJson(e))
               .toList(),
       vocabulary:
           (json['vocabulary'] as List<dynamic>?)
@@ -55,15 +61,8 @@ class TextContents {
   final List<LocalizedText>? introduction;
   final List<LocalizedText>? ending;
   final List<LocalizedText>? contents;
-  final List<TableContent>? tableContent;
 
-  TextContents({
-    this.concept,
-    this.introduction,
-    this.ending,
-    this.contents,
-    this.tableContent,
-  });
+  TextContents({this.concept, this.introduction, this.ending, this.contents});
 
   factory TextContents.fromJson(Map<String, dynamic> json) {
     return TextContents(
@@ -76,16 +75,12 @@ class TextContents {
               ?.map((e) => LocalizedText.fromJson(e))
               .toList(),
       ending:
-           (json['ending'] as List<dynamic>?)
+          (json['ending'] as List<dynamic>?)
               ?.map((e) => LocalizedText.fromJson(e))
               .toList(),
       contents:
           (json['contents'] as List<dynamic>?)
               ?.map((e) => LocalizedText.fromJson(e))
-              .toList(),
-      tableContent:
-          (json['table'] as List<dynamic>?)
-              ?.map((e) => TableContent.fromJson(e))
               .toList(),
     );
   }
@@ -93,19 +88,19 @@ class TextContents {
 
 class TableContent {
   final LocalizedText element;
-  final LocalizedText analogy;
+  final LocalizedText example;
   final LocalizedText description;
 
   TableContent({
     required this.element,
-    required this.analogy,
+    required this.example,
     required this.description,
   });
 
   factory TableContent.fromJson(Map<String, dynamic> json) {
     return TableContent(
       element: LocalizedText.fromJson(json['element']),
-      analogy: LocalizedText.fromJson(json['analogy']),
+      example: LocalizedText.fromJson(json['example']),
       description: LocalizedText.fromJson(json['description']),
     );
   }

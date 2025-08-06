@@ -1,70 +1,65 @@
-[
-  {
-    "title": {
-      "en": "Introduction to Angular",
-      "es": "Mi proyecto de Angular "
-    },
-    "textContents": {
-      "introduction": [
-        {
-          "en": " ",
-          "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal. "
-        }
-      ],
-      "ending": [
-        {
-          "en": "",
-          "es": "Para el proyecto de las siguientes lecciones vamos a trabajar con CSS. "
-        }
-      ],
-      "contents": [
-        {
-          "en": "",
-          "es": " "
-        }
-      ],
-      "exercise": [
-        {
-          "type": "options",
-          "completed": false,
-          "instruction": {
-            "en": "Install Angular using npm. Choose the correct command:",
-            "es": "Creamos un proyecto. Elige el comando correcto:"
-          },
-          "options": [
-            {
-              "text": "npm create project-name",
-              "correct": false,
-              "output": "Error: Unknown command 'npm create'."
-            },
-            {
-              "text": "ng new project-name",
-              "correct": true,
-              "output": "LINK IMAGEN DE TERMINAL "
-            },
-            {
-              "text": "ng create project-name",
-              "correct": false,
-              "output": "Error: Unknown command 'ng create'. Did you mean 'ng add' ?"
-            },
-            {
-              "text": "node new project-name",
-              "correct": false,
-              "output": "Error: 'new' is not a recognized Node.js command."
-            }
-          ]
-        }
-      ]
-    },
-    "imageUrl": "link",
-    "backgroundColor": "#FFF3E0",
-    "audioUrl": "link",
-    "avatar": {
-      "name": "Lina",
-      "imageUrl": "link",
-      "position": "bottomLeft"
-    }
+[{
+  "title": {
+    "en": "Introduction to Angular",
+    "es": "Introducción a Angular"
   },
+  "textContents": {
+    "introduction": [
+      {
+        "en": "Now that we have everything ready, let's create a new Angular project using the terminal.",
+        "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal."
+      }
+    ],
+    "ending": [
+      {
+        "en": "In the upcoming lessons, we will work with CSS in our Angular project.",
+        "es": "Para el proyecto de las siguientes lecciones vamos a trabajar con CSS."
+      }
+    ]
+    
+  },
+  "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "Install Angular using npm. Choose the correct command:",
+          "es": "Creamos un proyecto. Elige el comando correcto:"
+        },
+        "options": [
+          {
+            "text": "npm create project-name",
+            "correct": false,
+            "output": "Error: Unknown command 'npm create'."
+          },
+          {
+            "text": "ng new project-name",
+            "correct": true,
+            "output": "LINK IMAGEN DE TERMINAL"
+          },
+          {
+            "text": "ng create project-name",
+            "correct": false,
+            "output": "Error: Unknown command 'ng create'. Did you mean 'ng add' ?"
+          },
+          {
+            "text": "node new project-name",
+            "correct": false,
+            "output": "Error: 'new' is not a recognized Node.js command."
+          }
+        ]
+      }
+    ],
+  "imageUrl": "link",
+  "backgroundColor": "#FFF3E0",
+  "audioUrl": "link",
+  "avatar": {
+    "name": "Lina",
+    "imageUrl": "link",
+    "position": "bottomLeft"
+  }
+}
+,
   {
     "title": {
       "en": "Project Pre-settings",

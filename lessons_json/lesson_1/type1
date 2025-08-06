@@ -25,8 +25,8 @@
           "es": "1. Ir al sitio oficial."
         },
         {
-          "en": "Visit: https://nodejs.org",
-          "es": "Ve a: https://nodejs.org "
+          "en": "Visit: nodejs.org",
+          "es": "Ve a: nodejs.org "
         },
         {
           "en": "2. Download the installer.",
@@ -113,8 +113,8 @@
   },
   {
     "title": {
-      "en": "Installing Angular",
-      "es": "Instalación de Angular"
+      "en": "Node.js and npm ",
+      "es": "Node.js y npm " 
     },
     "textContents": {
       "introduction":[ {
@@ -130,14 +130,16 @@
           "en": "Let's look at the following analogy.",
           "es": "Veamos la siguiente analogía."
         }
-      ],
-      "table": [
+      ]
+      
+    },
+    "table": [
         {
           "element": {
             "en": "JavaScript",
             "es": "JavaScript"
           },
-          "analogy": {
+          "example": {
             "en": "🔧 The language used to build the car",
             "es": "🔧 El lenguaje para construir carros"
           },
@@ -151,7 +153,7 @@
             "en": "Node.js",
             "es": "Node.js"
           },
-          "analogy": {
+          "example": {
             "en": "🚗 The car engine",
             "es": "🚗 El motor del carro"
           },
@@ -165,7 +167,7 @@
             "en": "npm",
             "es": "npm"
           },
-          "analogy": {
+          "example": {
             "en": "🛒 The parts store",
             "es": "🛒 La tienda de repuestos"
           },
@@ -179,7 +181,7 @@
             "en": "Angular CLI",
             "es": "Angular CLI"
           },
-          "analogy": {
+          "example": {
             "en": "⚙️ A tool you install to work on the car",
             "es": "⚙️ Una herramienta que compras para mejorar el carro"
           },
@@ -188,8 +190,7 @@
             "es": "Una utilidad para trabajar con proyectos Angular"
           }
         }
-      ]
-    },
+      ],
     "vocabulary": [
       {
         "term": "npm",

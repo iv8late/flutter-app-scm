@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/courses/classes/course.dart';
-import 'package:project_base_app/shared/lesson_json_content.dart' hide Table;
+import 'package:project_base_app/shared/lesson_json_content.dart';
 import 'package:project_base_app/shared/widgets/text_contents_card.dart';
 
 class IntroLesson extends StatefulWidget {
@@ -68,13 +68,7 @@ class _IntroLessonState extends State<IntroLesson> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // if (data.imageUrl != null)
-            //   Padding(
-            //     padding: const EdgeInsets.only(bottom: 16),
-            //     child: Image.network(data.imageUrl!, fit: BoxFit.cover),
-            //   ),
-
-            // Título
+            // TÍTULO
             Text(
               isSpanish ? data.title.es : data.title.en,
               style: const TextStyle(
@@ -85,25 +79,118 @@ class _IntroLessonState extends State<IntroLesson> {
             ),
             const SizedBox(height: 16),
 
-            // Usa tu widget aquí
-            TextContentsCard(
-              content: data.textContents,
-              vocabulary: data.vocabulary ?? [],
-              isSpanish: isSpanish,
-              onLanguageToggle: (value) {
-                setState(() {
-                  isSpanish = value;
-                });
-              },
-            ),
+            // INTRODUCCIÓN
+            if (data.textContents.introduction != null &&
+                data.textContents.introduction!.isNotEmpty)
+              ...data.textContents.introduction!.map(
+                (intro) => Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    isSpanish ? intro.es : intro.en,
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ),
+
+            // CONCEPTO
+            if (data.textContents.concept != null)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Text(
+                  isSpanish
+                      ? data.textContents.concept!.es
+                      : data.textContents.concept!.en,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+            // CONTENIDOS
+            if (data.textContents.contents != null &&
+                data.textContents.contents!.isNotEmpty)
+              TextContentsCard(
+                content: data.textContents,
+                vocabulary: data.vocabulary ?? [],
+                isSpanish: isSpanish,
+                onLanguageToggle: (value) {
+                  setState(() {
+                    isSpanish = value;
+                  });
+                },
+              ),
+
+            // ENDING
+            if (data.textContents.ending != null &&
+                data.textContents.ending!.isNotEmpty)
+              ...data.textContents.ending!.map(
+                (end) => Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    isSpanish ? end.es : end.en,
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ),
 
             const SizedBox(height: 16),
 
-            if (data.textContents.tableContent != null)
+            // EJERCICIOS
+            if (data.exercises != null && data.exercises!.isNotEmpty)
+              ...data.exercises!.map((ex) {
+                if (ex.type == 'options') {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        isSpanish ? ex.instruction.es : ex.instruction.en,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ...?ex.options?.map((opt) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4.0),
+                          child: ListTile(
+                            tileColor: Colors.white10,
+                            title: Text(
+                              opt.text,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            onTap: () {
+                              final correct = opt.correct;
+                              final result = opt.output;
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(result),
+                                  backgroundColor:
+                                      correct ? Colors.green : Colors.red,
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      }),
+                      const SizedBox(height: 16),
+                    ],
+                  );
+                }
+                return const SizedBox.shrink();
+              }),
+
+            // TABLA DE ANALOGÍAS
+            if (data.tableContent != null && data.tableContent!.isNotEmpty)
               _buildAnalogyTable(data),
 
             const SizedBox(height: 16),
 
+            // AVATAR
             if (data.avatar != null) _buildAvatar(data.avatar!),
           ],
         ),
@@ -112,7 +199,7 @@ class _IntroLessonState extends State<IntroLesson> {
   }
 
   Widget _buildAnalogyTable(LessonContentData data) {
-    final table = data.textContents.tableContent!;
+    final table = data.tableContent!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -145,7 +232,7 @@ class _IntroLessonState extends State<IntroLesson> {
               (row) => TableRow(
                 children: [
                   _tableCell(isSpanish ? row.element.es : row.element.en),
-                  _tableCell(isSpanish ? row.analogy.es : row.analogy.en),
+                  _tableCell(isSpanish ? row.example.es : row.example.en),
                   _tableCell(
                     isSpanish ? row.description.es : row.description.en,
                   ),
