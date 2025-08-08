@@ -54,30 +54,97 @@ class _TextContentsCardState extends State<TextContentsCard> {
   Widget build(BuildContext context) {
     final currentText = widget.content.contents?[currentIndex];
     final text = widget.isSpanish ? currentText?.es : currentText?.en;
-
     final textSpans = _buildRichText(text ?? '');
 
-    return GestureDetector(
-      onTap: _nextCard,
-      child: Card(
-        color: Colors.white,
-        elevation: 4,
-        margin: const EdgeInsets.symmetric(vertical: 12),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                  icon: const Icon(Icons.translate),
-                  onPressed: () => widget.onLanguageToggle(!widget.isSpanish),
+    return Center(
+      child: GestureDetector(
+        onTap: _nextCard,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Stack(
+              alignment: Alignment.center,
+              children: [
+                // Tarjeta más al fondo
+                Positioned(
+                  top: 30,
+                  child: _buildShadowCard(Colors.grey.shade300, scale: 0.92),
+                ),
+                // Tarjeta intermedia
+                Positioned(
+                  top: 15,
+                  child: _buildShadowCard(Colors.grey.shade200, scale: 0.96),
+                ),
+                // Tarjeta principal con animación
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 400),
+                  transitionBuilder: (child, animation) {
+                    final offsetAnimation = Tween<Offset>(
+                      begin: const Offset(0, 0.2),
+                      end: Offset.zero,
+                    ).animate(
+                      CurvedAnimation(parent: animation, curve: Curves.easeOut),
+                    );
+
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  child: _buildMainCard(textSpans, key: ValueKey(currentIndex)),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMainCard(List<InlineSpan> textSpans, {Key? key}) {
+    return Card(
+      key: key,
+      elevation: 10,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      color: Colors.white,
+      child: Container(
+        width: 320,
+        constraints: const BoxConstraints(minHeight: 150, maxHeight: 220),
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                icon: const Icon(Icons.translate),
+                onPressed: () => widget.onLanguageToggle(!widget.isSpanish),
+              ),
+            ),
+            const SizedBox(height: 30),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Center(
+                  child: RichText(
+                    textAlign: TextAlign.start,
+                    text: TextSpan(children: textSpans),
+                  ),
                 ),
               ),
-              RichText(text: TextSpan(children: textSpans)),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildShadowCard(Color color, {double scale = 1.0}) {
+    return Transform.scale(
+      scale: scale,
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        color: color,
+        child: const SizedBox(height: 200, width: 320),
       ),
     );
   }
@@ -93,7 +160,10 @@ class _TextContentsCardState extends State<TextContentsCard> {
         spans.add(
           TextSpan(
             text: text.substring(lastIndex, match.start),
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 18, // 📐 texto más grande
+            ),
           ),
         );
       }
@@ -107,7 +177,8 @@ class _TextContentsCardState extends State<TextContentsCard> {
               boldWord,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: Colors.deepPurple,
+                fontSize: 18, // tamaño del vocabulario resaltado
               ),
             ),
           ),
@@ -120,7 +191,7 @@ class _TextContentsCardState extends State<TextContentsCard> {
       spans.add(
         TextSpan(
           text: text.substring(lastIndex),
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black, fontSize: 18),
         ),
       );
     }
