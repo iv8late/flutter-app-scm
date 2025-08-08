@@ -1,127 +1,381 @@
 [
     {
-        "title": {
-            "en": "Installing Angular",
-            "es": "Instalación de Angular"
-        },
-        "textContents": {
-            "introduction": [
-                {
-                    "en": "Now we are going to install Angular.",
-                    "es": "Ahora podemos a instalar Angular"
-                }
-            ],
-            "contents": [
-                {
-                    "en": "Open your system terminal and **run** the following command:",
-                    "es": "Abrimos la terminal de nuestro sistema. Y ejecutamos el siguiente comando"
-                },
-                {
-                    "en": "npm install -g @angular/cli",
-                    "es": "npm install -g @angular/cli"
-                },
-                {
-                    "en": "Based on the previous analogy, we can explain the command like this:",
-                    "es": "Según la analogía pasada, podemos explicar el comando mostrado así:"
-                },
-                {
-                    "en": "With Node already installed (the engine), we use npm (the store) to globally install -g Angular CLI (a tool used with JavaScript).",
-                    "es": "Con Node ya instalado (el motor), usa npm (la tienda) para instalar de forma global -g Angular CLI (una herramienta que se usa con JavaScript)."
-                }
-            ]
-        },
-        "exercise": [
-            {
-                "type": "options",
-                "completed": false,
-                "instruction": {
-                    "en": "Install Angular using npm. Choose the correct command:",
-                    "es": "Instalemos Angular con npm. Elige el comando correcto:"
-                },
-                "options": [
-                    {
-                        "text": "npm install @angular/cli",
-                        "correct": false,
-                        "output": "Error: Missing global flag `-g`. The Angular CLI won't be available as a global command."
-                    },
-                    {
-                        "text": "npm install -g @angular/cli",
-                        "correct": true,
-                        "output": "added 267 packages in 12s\n\nchanged 1 package, and audited 267 packages in 5s\n\nfound 0 vulnerabilities\n\nC:\\Users\\user\\AppData\\Roaming\\npm\\ng -> C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\@angular\\cli\\bin\\ng\n\n+ @angular/cli@18.0.3"
-                    },
-                    {
-                        "text": "ng install angular",
-                        "correct": false,
-                        "output": "Error: Unknown command 'install'. Did you mean 'ng add' or 'npm install'?"
-                    },
-                    {
-                        "text": "node install angular-cli",
-                        "correct": false,
-                        "output": "Error: 'install' is not a recognized Node.js command. Use npm to install packages."
-                    }
-                ]
-            }
-        ],
-        "vocabulary": [
-            {
-                "term": "run",
-                "definition": {
-                    "es": "Ejecutar un comando, script o aplicación. En desarrollo web, se usa para iniciar servidores, procesos o herramientas.",
-                    "en": "To execute a command, script, or application. In web development, it's used to start servers, processes, or tools."
-                }
-            }
-        ],
-        "imageUrl": "LINK",
-        "backgroundColor": "#FFF3E0",
-        "avatar": {
-            "name": "Lina",
-            "imageUrl": "https://your-cdn.com/avatar_lina.png",
-            "position": "bottomLeft"
+    "title": {
+      "en": "Installing Angular",
+      "es": "Instalación de Angular"
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Now we are going to install Angular.",
+          "es": "Ahora podemos instalar Angular"
         }
+      ]
+      
+      
+    },
+    "exercise": [
+        {
+          "en": "Based on the previous analogy, we can explain the command like this:",
+          "es": "Según la analogía pasada, podemos explicar el comando mostrado así:"
+        },
+        {
+          "en": "With Node already installed (the engine), we use npm (the store) to globally install -g Angular CLI (a tool used with JavaScript).",
+          "es": "Con Node ya instalado (el motor), usa npm (la tienda) para instalar de forma *global -g Angular CLI (una herramienta que se usa con JavaScript)."
+        },
+      {
+        "type": "options",
+        "completed": false,
+        
+  "instruction": {
+    "en": "Based on the previous analogy, the engine refers to which technology?",
+    "es": "Según la analogía vista anteriormente. El motor, ¿A qué tecnología hace referencia?"
+  },
+  "options": [
+    {
+      "text": "Node",
+      "correct": true,
+      "output": {
+        "en": "JavaScript runtime environment. Correct!",
+        "es": "El entorno de ejecución de JavaScript. Correcto."
+      }
     },
     {
-        "title": {
-            "en": "Verify Angular Version ",
-            "es": "Verificar versión de Angular"
-        },
-        "textContents": {
-            "introduction": [
-                {
-                    "en": " ",
-                    "es": "Para comprobar la instalación correcta de angular vamos a verificar la versión"
-                }
-            ],
-            "ending": [
-                {
-                    "en": " ",
-                    "es": "¡ Felicidades, Hemos instalado correctamente Angular ! "
-                },
-                {
-                    "en": " ",
-                    "es": "Recuerda que para la creación de un proyecto en angular vamos a utilizar el comando ng new nombre-de-proyecto"
-                }
-            ]
-           
-        },
-         "exercise": [
-                {
-                    "type": "input",
-                    "instruction": {
-                        "en": "Let's verify the version of the Angular CLI. Type the correct command:",
-                        "es": "Vamos a verificar la versión de nuestro cliente de Angular. Escribe el comando correcto:"
-                    },
-                    "input": "ng version",
-                    "output": "    _                      _                 ____ _     ___\n    / \\   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|\n   / △ \\ | '_ \\ / _` | | | | |/ _` | '__|   | |   | |    | |\n  / ___ \\| | | | (_| | |_| | | (_| | |      | |___| |___ | |\n /_/   \\_\\_| |_|\\__, |\\__,_|_|\\__,_|_|       \\____|_____|___|\n                |___/\n\nAngular CLI: 18.0.3\nNode: 22.17.0\nPackage Manager: npm 10.9.2\nOS: win32 x64\n\nAngular: undefined\n...\n\nPackage                      Version\n------------------------------------------------------\n@angular-devkit/architect    0.1800.3 (cli-only)\n@angular-devkit/core         18.0.3 (cli-only)\n@angular-devkit/schematics   18.0.3 (cli-only)\n@schematics/angular          18.0.3 (cli-only)",
-                    "eoutput": "Incorrect command.",
-                    "completed": false
-                }
-            ],
-        "imageUrl": "LINK",
-        "backgroundColor": "#FFF3E0",
-        "avatar": {
-            "name": "Lina",
-            "imageUrl": "LINK",
-            "position": "bottomLeft"
-        }
+      "text": "npm",
+      "correct": false,
+      "output": {
+        "en": "npm is the package manager, not the engine.",
+        "es": "npm es el gestor de paquetes, no el motor."
+      }
+    },
+    {
+      "text": "Angular CLI",
+      "correct": false,
+      "output": {
+        "en": "Angular CLI is a tool, not the engine.",
+        "es": "Angular CLI es una herramienta, no el motor."
+      }
+    },
+    {
+      "text": "JavaScript",
+      "correct": false,
+      "output": {
+        "en": "JavaScript is the language, not the engine.",
+        "es": "JavaScript es el lenguaje, no el motor."
+      }
     }
+  ]
+
+      }
+    ],
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  },
+    {
+    "title": {
+      "en": "Installing Angular",
+      "es": "Instalación de Angular"
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Now we are going to install Angular.",
+          "es": "Ahora podemos instalar Angular"
+        }
+      ],
+      "contents": [
+        {
+          "en": "Open your system terminal and **run** the following **command**:",
+          "es": "Abrimos la terminal de nuestro sistema. Y ejecutamos el siguiente **comando**"
+        },
+        { 
+          "en": "npm install -g @angular/cli",
+          "es": "npm install -g @angular/cli"
+        },
+        {
+          "en": "Based on the previous analogy, we can explain the command like this:",
+          "es": "Según la analogía pasada, podemos explicar el comando mostrado así:"
+        },
+        {
+          "en": "With Node already installed (the engine), we use npm (the store) to globally install -g Angular CLI (a tool used with JavaScript).",
+          "es": "Con Node ya instalado (el motor), usa npm (la tienda) para instalar de forma *global -g Angular CLI (una herramienta que se usa con JavaScript)."
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "Install Angular using npm. Choose the correct command:",
+          "es": "Instalemos Angular con npm. Elige el comando correcto:"
+        },
+        "options": [
+          {
+            "text": "npm install @angular/cli",
+            "correct": false,
+            "output": "Error: Missing global flag `-g`. The Angular CLI won't be available as a global command."
+          },
+          {
+            "text": "npm install -g @angular/cli",
+            "correct": true,
+            "output": "added 267 packages in 12s\n\nchanged 1 package, and audited 267 packages in 5s\n\nfound 0 vulnerabilities\n\nC:\\Users\\user\\AppData\\Roaming\\npm\\ng -> C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\@angular\\cli\\bin\\ng\n\n+ @angular/cli@18.0.3"
+          },
+          {
+            "text": "ng install angular",
+            "correct": false,
+            "output": "Error: Unknown command 'install'. Did you mean 'ng add' or 'npm install'?"
+          },
+          {
+            "text": "node install angular-cli",
+            "correct": false,
+            "output": "Error: 'install' is not a recognized Node.js command. Use npm to install packages."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": {
+          "en": "run",
+          "es": "ejecutar"
+        },
+        "definition": {
+          "en": "To execute a command, script, or application. In web development, it's used to start servers, processes, or tools.",
+          "es": "Ejecutar un comando, script o aplicación. En desarrollo web, se usa para iniciar servidores, procesos o herramientas."
+        }
+      },
+      {
+        "term": {
+          "en": "global",
+          "es": "global"
+        },
+        "definition": {
+          "en": "A type of installation that makes a tool available system-wide, not just in one project.",
+          "es": "Un tipo de instalación que hace que una herramienta esté disponible en todo el sistema, no solo en un proyecto."
+        }
+      },
+      {
+        "term": {
+          "en": "command",
+          "es": "comando"
+        },
+        "definition": {
+          "en": "An instruction you type in the terminal to perform a specific task.",
+          "es": "Una instrucción que escribes en la terminal para realizar una tarea específica."
+        }
+      }
+    ],
+    "imageUrl": "LINK",
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "title": {
+      "en": "Installing Angular",
+      "es": "Instalación de Angular"
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Now we are going to install Angular.",
+          "es": "Ahora podemos instalar Angular"
+        }
+      ],
+      "contents": [
+        {
+          "en": "Open your system terminal and **run** the following **command**:",
+          "es": "Abrimos la terminal de nuestro sistema. Y ejecutamos el siguiente **comando**"
+        },
+        { 
+          "en": "npm install -g @angular/cli",
+          "es": "npm install -g @angular/cli"
+        },
+        {
+          "en": "Based on the previous analogy, we can explain the command like this:",
+          "es": "Según la analogía pasada, podemos explicar el comando mostrado así:"
+        },
+        {
+          "en": "With Node already installed (the engine), we use npm (the store) to globally install -g Angular CLI (a tool used with JavaScript).",
+          "es": "Con Node ya instalado (el motor), usa npm (la tienda) para instalar de forma *global -g Angular CLI (una herramienta que se usa con JavaScript)."
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "Install Angular using npm. Choose the correct command:",
+          "es": "Instalemos Angular con npm. Elige el comando correcto:"
+        },
+        "options": [
+          {
+            "text": "npm install @angular/cli",
+            "correct": false,
+            "output": "Error: Missing global flag `-g`. The Angular CLI won't be available as a global command."
+          },
+          {
+            "text": "npm install -g @angular/cli",
+            "correct": true,
+            "output": "added 267 packages in 12s\n\nchanged 1 package, and audited 267 packages in 5s\n\nfound 0 vulnerabilities\n\nC:\\Users\\user\\AppData\\Roaming\\npm\\ng -> C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\@angular\\cli\\bin\\ng\n\n+ @angular/cli@18.0.3"
+          },
+          {
+            "text": "ng install angular",
+            "correct": false,
+            "output": "Error: Unknown command 'install'. Did you mean 'ng add' or 'npm install'?"
+          },
+          {
+            "text": "node install angular-cli",
+            "correct": false,
+            "output": "Error: 'install' is not a recognized Node.js command. Use npm to install packages."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": {
+          "en": "run",
+          "es": "ejecutar"
+        },
+        "definition": {
+          "en": "To execute a command, script, or application. In web development, it's used to start servers, processes, or tools.",
+          "es": "Ejecutar un comando, script o aplicación. En desarrollo web, se usa para iniciar servidores, procesos o herramientas."
+        }
+      },
+      {
+        "term": {
+          "en": "global",
+          "es": "global"
+        },
+        "definition": {
+          "en": "A type of installation that makes a tool available system-wide, not just in one project.",
+          "es": "Un tipo de instalación que hace que una herramienta esté disponible en todo el sistema, no solo en un proyecto."
+        }
+      },
+      {
+        "term": {
+          "en": "command",
+          "es": "comando"
+        },
+        "definition": {
+          "en": "An instruction you type in the terminal to perform a specific task.",
+          "es": "Una instrucción que escribes en la terminal para realizar una tarea específica."
+        }
+      }
+    ],
+    "imageUrl": "LINK",
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  },
+   {
+    "title": {
+      "en": "Command for installing Angular CLI" ,
+      "es": "Comando para la instalación de Angular CLI"
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Select the correct answer.",
+          "es": "Seleccione la respuesta correcta"
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "Install Angular using npm. Choose the correct command:",
+          "es": "Instalemos Angular con npm. Elige el comando correcto:"
+        },
+        "options": [
+          {
+            "text": "npm install @angular/cli",
+            "correct": false,
+            "output": "Error: Missing global flag `-g`. The Angular CLI won't be available as a global command."
+          },
+          {
+            "text": "npm install -g @angular/cli",
+            "correct": true,
+            "output": "added 267 packages in 12s\n\nchanged 1 package, and audited 267 packages in 5s\n\nfound 0 vulnerabilities\n\nC:\\Users\\user\\AppData\\Roaming\\npm\\ng -> C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\@angular\\cli\\bin\\ng\n\n+ @angular/cli@18.0.3"
+          },
+          {
+            "text": "ng install angular",
+            "correct": false,
+            "output": "Error: Unknown command 'install'. Did you mean 'ng add' or 'npm install'?"
+          },
+          {
+            "text": "node install angular-cli",
+            "correct": false,
+            "output": "Error: 'install' is not a recognized Node.js command. Use npm to install packages."
+          }
+        ]
+      }
+    ],
+    "imageUrl": "LINK",
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "title": {
+      "en": "Verify Angular Version ",
+      "es": "Verificar versión de Angular"
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": " ",
+          "es": "Para comprobar la instalación correcta de angular vamos a verificar la versión"
+        }
+      ],
+      "ending": [
+        {
+          "en": " ",
+          "es": "¡ Felicidades, Hemos instalado correctamente Angular ! "
+        },
+        {
+          "en": " ",
+          "es": "Recuerda que para la creación de un proyecto en angular vamos a utilizar el comando ng new nombre-de-proyecto"
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "input",
+        "instruction": {
+          "en": "Let's verify the version of the Angular CLI. Type the correct command:",
+          "es": "Vamos a verificar la versión de nuestro cliente de Angular. Escribe el comando correcto:"
+        },
+        "input": "ng version",
+        "output": "    _                      _                 ____ _     ___\n    / \\   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|\n   / △ \\ | '_ \\ / _` | | | | |/ _` | '__|   | |   | |    | |\n  / ___ \\| | | | (_| | |_| | | (_| | |      | |___| |___ | |\n /_/   \\_\\_| |_|\\__, |\\__,_|_|\\__,_|_|       \\____|_____|___|\n                |___/\n\nAngular CLI: 18.0.3\nNode: 22.17.0\nPackage Manager: npm 10.9.2\nOS: win32 x64\n\nAngular: undefined\n...\n\nPackage                      Version\n------------------------------------------------------\n@angular-devkit/architect    0.1800.3 (cli-only)\n@angular-devkit/core         18.0.3 (cli-only)\n@angular-devkit/schematics   18.0.3 (cli-only)\n@schematics/angular          18.0.3 (cli-only)",
+        "eoutput": "Incorrect command.",
+        "completed": false
+      }
+    ],
+    "imageUrl": "LINK",
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  }
 ]

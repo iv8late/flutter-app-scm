@@ -72,9 +72,7 @@
         }
       ]
     },
-    "imageUrl": "link",
     "backgroundColor": "#FFF3E0",
-    "audioUrl": "link",
     "avatar": {
       "name": "Lina",
       "imageUrl": "link",
@@ -128,9 +126,8 @@
         {
           "en": "Before creating a project, we need to get familiar with these concepts.",
           "es": "Antes de crear un proyecto. Debemos conocer familiarizarnos con estos conceptos "
-
         },
-      {
+        {
           "en": "Let's look at the following analogy. To understand better",
           "es": "Veamos la siguiente analogía para entender mejor."
         }
@@ -222,6 +219,104 @@
           "es": "Motor o parte principal que ejecuta acciones en un sistema o aplicación.",
           "en": "The main part that drives operations in a system or application, like a 'motor' for software."
         }
+      }
+    ],
+    "imageUrl": "link",
+    "backgroundColor": "#FFF3E0",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Before creating a project, we need to get familiar with these concepts.",
+          "es": "Antes de crear un proyecto. Debemos conocer familiarizarnos con estos conceptos "
+        },
+        {
+          "en": "Let's look at the following analogy. To understand better",
+          "es": "Veamos la siguiente analogía para entender mejor."
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "match",
+        "completed": false,
+        "instruction": {
+          "en": "Drag each concept on the left to its correct description on the right.",
+          "es": "Arrastra cada concepto de la izquierda hacia su descripción correcta en la derecha."
+        },
+        "left": [
+          {
+            "id": "framework",
+            "text": "Framework"
+          },
+          {
+            "id": "component",
+            "text": "Component"
+          },
+          {
+            "id": "html",
+            "text": "HTML"
+          },
+          {
+            "id": "css",
+            "text": "CSS"
+          },
+          {
+            "id": "ts",
+            "text": "TS"
+          }
+        ],
+        "right": [
+          {
+            "id": "desc_framework",
+            "text": "A structure or base used to build web applications."
+          },
+          {
+            "id": "desc_component",
+            "text": "A reusable part of the interface made of HTML, CSS, and TS."
+          },
+          {
+            "id": "desc_html",
+            "text": "Defines the structure and layout of the web page."
+          },
+          {
+            "id": "desc_css",
+            "text": "Adds visual styles like colors and spacing to HTML."
+          },
+          {
+            "id": "desc_ts",
+            "text": "Contains the logic and behavior of the component."
+          }
+        ],
+        "pairs": [
+          {
+            "left": "framework",
+            "right": "desc_framework"
+          },
+          {
+            "left": "component",
+            "right": "desc_component"
+          },
+          {
+            "left": "html",
+            "right": "desc_html"
+          },
+          {
+            "left": "css",
+            "right": "desc_css"
+          },
+          {
+            "left": "ts",
+            "right": "desc_ts"
+          }
+        ]
       }
     ],
     "imageUrl": "link",
