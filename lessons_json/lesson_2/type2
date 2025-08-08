@@ -107,69 +107,7 @@
           "es": "Un buen SEO ayuda a que tu web aparezca más alto en los resultados de búsqueda. Para esto, los motores de búsqueda necesitan leer el contenido HTML fácilmente."
         }
       ]
-    },
-    "vocabulary": [
-      {
-        "term": {
-          "en": "which",
-          "es": "qué"
-        },
-        "definition": {
-          "en": "Used to ask about one or more options from a defined set.",
-          "es": "Se usa para preguntar sobre una o más opciones dentro de un conjunto definido."
-        }
-      },
-      {
-        "term": {
-          "en": "stylesheet format",
-          "es": "formato de hoja de estilos"
-        },
-        "definition": {
-          "en": "A specific way or language used to write CSS styles, such as SCSS or LESS.",
-          "es": "Una forma o lenguaje específico para escribir estilos CSS, como SCSS o LESS."
-        }
-      },
-      {
-        "term": {
-          "en": "SCSS",
-          "es": "SCSS"
-        },
-        "definition": {
-          "en": "A CSS preprocessor that adds features like variables, nesting, and mixins to simplify styling.",
-          "es": "Un preprocesador de CSS que añade funciones como variables, anidamiento y mixins para simplificar el diseño."
-        }
-      },
-      {
-        "term": {
-          "en": "LESS",
-          "es": "LESS"
-        },
-        "definition": {
-          "en": "A CSS preprocessor that extends CSS with dynamic behavior such as variables and functions.",
-          "es": "Un preprocesador de CSS que extiende CSS con comportamientos dinámicos como variables y funciones."
-        }
-      },
-      {
-        "term": {
-          "en": "features",
-          "es": "herramientas"
-        },
-        "definition": {
-          "en": "Extra capabilities or functions that improve how something works.",
-          "es": "Capacidades o funciones adicionales que mejoran cómo funciona algo."
-        }
-      },
-      {
-        "term": {
-          "en": "Search Engine Optimization",
-          "es": "Optimización para Motores de Búsqueda"
-        },
-        "definition": {
-          "en": "A set of techniques used to improve a website’s visibility in search engine results.",
-          "es": "Conjunto de técnicas utilizadas para mejorar la visibilidad de un sitio web en los resultados de los motores de búsqueda."
-        }
-      }
-    ]
+    }
   },
   {
     "title": {
