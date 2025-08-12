@@ -4,9 +4,7 @@ import 'package:project_base_app/modules/courses/classes/course.dart';
 
 class ThemeCoursesDetail extends StatelessWidget {
   final ThemeScm item;
-  final TextEditingController _searchController = TextEditingController();
-
-  ThemeCoursesDetail({super.key, required this.item});
+  const ThemeCoursesDetail({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +12,6 @@ class ThemeCoursesDetail extends StatelessWidget {
       backgroundColor: AppTheme.white,
       body: CustomScrollView(
         slivers: [
-          // SliverAppBar con fondo e imagen
           SliverAppBar(
             backgroundColor: AppTheme.white,
             expandedHeight: 200.0,

@@ -1,0 +1,58 @@
+[
+  {
+    "title": {
+      "en": "Angular Technologies",
+      "es": "Tecnologías de Angular"
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "Based on the previous analogy, the engine refers to which technology?",
+          "es": "Según la analogía vista anteriormente. El motor, ¿A qué tecnología hace referencia?"
+        },
+        "options": [
+          {
+            "text": "Node",
+            "correct": true,
+            "output": {
+              "en": "JavaScript runtime environment. Correct!",
+              "es": "El entorno de ejecución de JavaScript. Correcto."
+            }
+          },
+          {
+            "text": "npm",
+            "correct": false,
+            "output": {
+              "en": "npm is the package manager, not the engine.",
+              "es": "npm es el gestor de paquetes, no el motor."
+            }
+          },
+          {
+            "text": "Angular CLI",
+            "correct": false,
+            "output": {
+              "en": "Angular CLI is a tool, not the engine.",
+              "es": "Angular CLI es una herramienta, no el motor."
+            }
+          },
+          {
+            "text": "JavaScript",
+            "correct": false,
+            "output": {
+              "en": "JavaScript is the language, not the engine.",
+              "es": "JavaScript es el lenguaje, no el motor."
+            }
+          }
+        ]
+      }
+    ],
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  }
+]

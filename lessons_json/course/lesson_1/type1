@@ -276,7 +276,7 @@
         "right": [
           {
             "id": "desc_framework",
-            "text": "A structure or base used to build web applications."
+            "text": "A structure/base used to build web applications."
           },
           {
             "id": "desc_component",
@@ -292,7 +292,7 @@
           },
           {
             "id": "desc_ts",
-            "text": "Contains the logic and behavior of the component."
+            "text": "Contains the logic of the component."
           }
         ],
         "pairs": [

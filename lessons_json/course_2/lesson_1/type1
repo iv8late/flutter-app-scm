@@ -1,0 +1,331 @@
+[
+  {
+    "title": {
+      "en": "Introduction to Angular",
+      "es": "Introducción a Angular "
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Let's get familiar with the basic concepts.",
+          "es": "Vamos a familiarizarnos con los conceptos bases.  "
+        }
+      ],
+      "ending": [
+        {
+          "en": "Before continuing with the Angular installation, Node.js is required. If you don't have it installed, follow these steps:",
+          "es": "Antes de continuar con la instalación de Angular es necesario lo Node.js. Si no lo tienes estos son los pasos para la instalación:"
+        },
+        {
+          "en": "1. Go to the official website.",
+          "es": "1. Ir al sitio oficial."
+        },
+        {
+          "en": "Visit: nodejs.org",
+          "es": "Ve a: nodejs.org "
+        },
+        {
+          "en": "2. Download the installer.",
+          "es": "2. Descargar el instalador. "
+        },
+        {
+          "en": "Choose **LTS** version and download the installer for your operating system.",
+          "es": " Elige la versión ***LTS**  y descarga el instalador para tu sistema operativo. "
+        },
+        {
+          "en": "3. Run the installer.",
+          "es": "3. Ejecutar el instalador. "
+        },
+        {
+          "en": "Double-click the downloaded file. Accept the terms and conditions. Leave the default options and click Next until the installation is complete.",
+          "es": "Haz doble clic en el archivo descargado. Acepta los términos y condiciones.Deja las opciones por defecto y haz clic en Next hasta terminar."
+        }
+      ],
+      "contents": [
+        {
+          "en": "Angular is a **framework** for building web applications, based on components.",
+          "es": "Angular es un **marco de trabajo** para la realización de aplicaciones web, basado en componentes. "
+        },
+        {
+          "en": "A **component** is a part or element that is part of a larger whole.",
+          "es": "Un **componente** es una parte o elemento que forma parte de un todo más grande."
+        },
+        {
+          "en": "In Angular, a component is made up of 3 types of files",
+          "es": "En Angular el componente se conforma de 3 elementos/tipos de archivos."
+        },
+        {
+          "en": "CSS, HTML, and TS.",
+          "es": "CSS, HTML, Y TS. "
+        },
+        {
+          "en": "HTML structures the page of a website",
+          "es": ".html es el archivo que permite estructura el cuerpo de la página web"
+        },
+        {
+          "en": "CSS is the file that adds styles to the HTML.",
+          "es": ".css es el archivo que le da estilos al .html"
+        },
+        {
+          "en": "And the TS file contains the logic that gives functionality to the HTML.",
+          "es": "y el .ts contiene la lógica que permite al html tener funcionalidad."
+        }
+      ]
+    },
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    },
+    "vocabulary": [
+      {
+        "term": "component",
+        "definition": {
+          "es": "Una parte reutilizable de una aplicación Angular que contiene HTML, CSS y lógica (TS).",
+          "en": "A reusable part of an Angular app containing HTML, CSS, and logic (TS)."
+        }
+      },
+      {
+        "term": "framework",
+        "definition": {
+          "es": "Una estructura que facilita el desarrollo de software.",
+          "en": "A structure that helps in building software applications."
+        }
+      },
+      {
+        "term": "npm",
+        "definition": {
+          "es": "Gestor de paquetes de Node.js para instalar herramientas.",
+          "en": "Node.js package manager used to install tools."
+        }
+      },
+      {
+        "term": "Node.js",
+        "definition": {
+          "es": "Entorno que permite ejecutar JavaScript fuera del navegador.",
+          "en": "Environment that allows JavaScript to run outside the browser."
+        }
+      },
+      {
+        "term": "LTS",
+        "definition": {
+          "es": "Versión con soporte a largo plazo, recomendada para instalaciones estables y seguras.",
+          "en": "Long Term Support version, recommended for stable and secure installations."
+        }
+      }
+    ]
+  },
+ {
+    "title": {
+      "en": "Node.js and npm ",
+      "es": "Node.js y npm "
+    },
+    "textContents": {
+      "introduction": [
+        {
+          "en": "Before creating a project, we need to get familiar with these concepts.",
+          "es": "Antes de crear un proyecto. Debemos conocer familiarizarnos con estos conceptos "
+        },
+        {
+          "en": "Let's look at the following analogy. To understand better",
+          "es": "Veamos la siguiente analogía para entender mejor."
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": {
+          "en": "Rendering Architectures",
+          "es": "Arquitecturas de renderizado."
+        },
+        "tableContent": [
+          {
+            "element": {
+              "en": "JavaScript",
+              "es": "JavaScript"
+            },
+            "example": {
+              "en": "🔧 The language used to build the car",
+              "es": "🔧 El lenguaje para construir carros"
+            },
+            "description": {
+              "en": "The programming language",
+              "es": "Es el lenguaje de programación"
+            }
+          },
+          {
+            "element": {
+              "en": "Node.js",
+              "es": "Node.js"
+            },
+            "example": {
+              "en": "🚗 The car engine",
+              "es": "🚗 El motor del carro"
+            },
+            "description": {
+              "en": "Executes JavaScript outside the browser",
+              "es": "Ejecuta JavaScript fuera del navegador"
+            }
+          },
+          {
+            "element": {
+              "en": "npm",
+              "es": "npm"
+            },
+            "example": {
+              "en": "🛒 The parts store",
+              "es": "🛒 La tienda de repuestos"
+            },
+            "description": {
+              "en": "Installs tools like Angular",
+              "es": "Instala herramientas como Angular"
+            }
+          },
+          {
+            "element": {
+              "en": "Angular CLI",
+              "es": "Angular CLI"
+            },
+            "example": {
+              "en": "⚙️ A tool you install to work on the car",
+              "es": "⚙️ Una herramienta que compras para mejorar el carro"
+            },
+            "description": {
+              "en": "Utility to work with Angular projects",
+              "es": "Una utilidad para trabajar con proyectos Angular"
+            }
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "npm",
+        "definition": {
+          "es": "Gestor de paquetes de Node.js para instalar herramientas.",
+          "en": "Node.js package manager, used to install tools."
+        }
+      },
+      {
+        "term": "Node.js",
+        "definition": {
+          "es": "Entorno que permite ejecutar JavaScript fuera del navegador.",
+          "en": "Environment that allows JavaScript to run outside the browser."
+        }
+      },
+      {
+        "term": "analogía",
+        "definition": {
+          "es": "Comparación entre dos cosas distintas que tienen algo en común, usada para explicar ideas complejas.",
+          "en": "A comparison between two different things that share similarities, used to explain complex ideas."
+        }
+      },
+      {
+        "term": "engine",
+        "definition": {
+          "es": "Motor o parte principal que ejecuta acciones en un sistema o aplicación.",
+          "en": "The main part that drives operations in a system or application, like a 'motor' for software."
+        }
+      }
+    ],
+    "imageUrl": "link",
+    "backgroundColor": "#FFF3E0",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
+  },
+  {
+     "title": {
+      "en": "Match de tecnologías de Angular",
+      "es": "Angular Technologies Match"
+    },
+    "exercise": [
+      {
+        "type": "match",
+        "completed": false,
+        "instruction": {
+          "en": "Drag each concept on the left to its correct description on the right.",
+          "es": "Arrastra cada concepto de la izquierda hacia su descripción correcta en la derecha."
+        },
+        "left": [
+          {
+            "id": "framework",
+            "text": "Framework"
+          },
+          {
+            "id": "component",
+            "text": "Component"
+          },
+          {
+            "id": "html",
+            "text": "HTML"
+          },
+          {
+            "id": "css",
+            "text": "CSS"
+          },
+          {
+            "id": "ts",
+            "text": "TS"
+          }
+        ],
+        "right": [
+          {
+            "id": "desc_framework",
+            "text": "A structure/base used to build web applications."
+          },
+          {
+            "id": "desc_component",
+            "text": "A reusable part of the interface made of HTML, CSS, and TS."
+          },
+          {
+            "id": "desc_html",
+            "text": "Defines the structure and layout of the web page."
+          },
+          {
+            "id": "desc_css",
+            "text": "Adds visual styles like colors and spacing to HTML."
+          },
+          {
+            "id": "desc_ts",
+            "text": "Contains the logic of the component."
+          }
+        ],
+        "pairs": [
+          {
+            "left": "framework",
+            "right": "desc_framework"
+          },
+          {
+            "left": "component",
+            "right": "desc_component"
+          },
+          {
+            "left": "html",
+            "right": "desc_html"
+          },
+          {
+            "left": "css",
+            "right": "desc_css"
+          },
+          {
+            "left": "ts",
+            "right": "desc_ts"
+          }
+        ]
+      }
+    ],
+    "imageUrl": "link",
+    "backgroundColor": "#FFF3E0",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
+  }
+]

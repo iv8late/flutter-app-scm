@@ -1,66 +1,6 @@
 [
   {
     "title": {
-      "en": "Introduction to Angular",
-      "es": "Introducción a Angular"
-    },
-    "textContents": {
-      "introduction": [
-        {
-          "en": "Now that we have everything ready, let's create a new Angular project using the terminal.",
-          "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal."
-        }
-      ],
-      "ending": [
-        {
-          "en": "In the upcoming lessons, we will work with CSS in our Angular project.",
-          "es": "Para el proyecto de las siguientes lecciones vamos a trabajar con CSS."
-        }
-      ]
-    },
-    "exercise": [
-      {
-        "type": "options",
-        "completed": false,
-        "instruction": {
-          "en": "Install Angular using npm. Choose the correct command:",
-          "es": "Creamos un proyecto. Elige el comando correcto:"
-        },
-        "options": [
-          {
-            "text": "npm create project-name",
-            "correct": false,
-            "output": "Error: Unknown command 'npm create'."
-          },
-          {
-            "text": "ng new project-name",
-            "correct": true,
-            "output": "LINK IMAGEN DE TERMINAL"
-          },
-          {
-            "text": "ng create project-name",
-            "correct": false,
-            "output": "Error: Unknown command 'ng create'. Did you mean 'ng add' ?"
-          },
-          {
-            "text": "node new project-name",
-            "correct": false,
-            "output": "Error: 'new' is not a recognized Node.js command."
-          }
-        ]
-      }
-    ],
-    "imageUrl": "link",
-    "backgroundColor": "#FFF3E0",
-    "audioUrl": "link",
-    "avatar": {
-      "name": "Lina",
-      "imageUrl": "link",
-      "position": "bottomLeft"
-    }
-  },
-   {
-    "title": {
       "en": "Web Optimization with SSR and SSG",
       "es": "Optimización Web con SSR y SSG"
     },
@@ -135,8 +75,8 @@
           "es": "SCSS"
         },
         "definition": {
-          "en": "A CSS preprocessor that adds features like variables, nesting, and mixins to simplify styling.",
-          "es": "Un preprocesador de CSS que añade funciones como variables, anidamiento y mixins para simplificar el diseño."
+          "en": "A CSS preprocessor that adds features like variables, nesting, and mixins. It uses a syntax fully compatible with standard CSS, making it easier to migrate existing styles.",
+          "es": "Un preprocesador de CSS que añade funciones como variables, anidamiento y mixins. Utiliza una sintaxis totalmente compatible con el CSS estándar, lo que facilita la migración de estilos existentes."
         }
       },
       {
@@ -145,8 +85,8 @@
           "es": "LESS"
         },
         "definition": {
-          "en": "A CSS preprocessor that extends CSS with dynamic behavior such as variables and functions.",
-          "es": "Un preprocesador de CSS que extiende CSS con comportamientos dinámicos como variables y funciones."
+          "en": "A CSS preprocessor that extends CSS with dynamic behavior such as variables, mixins, and functions. Its syntax is inspired by JavaScript, offering flexibility but less direct compatibility with plain CSS.",
+          "es": "Un preprocesador de CSS que extiende CSS con comportamientos dinámicos como variables, mixins y funciones. Su sintaxis está inspirada en JavaScript, lo que ofrece flexibilidad pero menos compatibilidad directa con CSS puro."
         }
       },
       {
@@ -190,60 +130,56 @@
         }
       ]
     },
-    "table": [
+    "tables": [
       {
         "title": {
           "en": "Rendering Architectures",
           "es": "Arquitecturas de renderizado."
         },
-        "element": {
-          "en": "SSR (Server-Side Rendering)",
-          "es": "SSR (Renderización en el Servidor)"
-        },
-        "example": {
-          "en": "Server builds page on every **request**.",
-          "es": "El servidor crea la página en cada **petición.**"
-        },
-        "description": {
-          "en": "Use for dynamic content and **better** SEO.",
-          "es": "Usa para contenido dinámico y **mejor** SEO."
-        }
-      },
-      {
-        "title": {
-          "en": "Rendering Architectures",
-          "es": "Arquitecturas de renderizado."
-        },
-        "element": {
-          "en": "SSG (Static Site Generation)",
-          "es": "SSG (Generación de Sitios **Estáticos**)"
-        },
-        "example": {
-          "en": "Pages pre-built before **deployment.**",
-          "es": "Páginas creadas antes del **despliegue.**"
-        },
-        "description": {
-          "en": "Use for mostly **static** sites and fast loading.",
-          "es": "Usa para sitios **estáticos** y carga rápida."
-        }
-      },
-      {
-        "title": {
-          "en": "Rendering Architectures",
-          "es": "Arquitecturas de renderizado."
-        },
-        "element": {
-          "en": "**Prerendering**",
-          "es": "**Prerendering**"
-        },
-        "example": {
-          "en": "Pages generated **ahead** for SEO.",
-          "es": "Páginas generadas por **adelantado** para SEO."
-        },
-        "description": {
-          "en": "Use for specific pages needing SEO **boost**.",
-          "es": "Usa para páginas específicas que necesitan SEO."
-        }
+        "tableContent": [
+          {
+            "element": {
+              "en": "SSR (Server-Side Rendering)",
+              "es": "SSR (Renderización en el Servidor)"
+            },
+            "example": {
+              "en": "Server builds page on every **request**.",
+              "es": "El servidor crea la página en cada **petición.**"
+            },
+            "description": {
+              "en": "Use for dynamic content and **better** SEO.",
+              "es": "Usa para contenido dinámico y **mejor** SEO."
+            }
+          },
+          {
+            "element": {
+              "en": "SSG (Static Site Generation)",
+              "es": "SSG (Generación de Sitios **Estáticos**)"
+            },
+            "example": {
+              "en": "Pages pre-built before **deployment.**",
+              "es": "Páginas creadas antes del **despliegue.**"
+            },
+            "description": {
+              "en": "Use for mostly **static** sites and fast loading.",
+              "es": "Usa para sitios **estáticos** y carga rápida."
+            }
+          },
+          {
+            "element": {
+              "en": "**Prerendering**",
+              "es": "**Prerendering**"
+            },
+            "example": {
+              "en": "Pages generated **ahead** for SEO.",
+              "es": "Páginas generadas por **adelantado** para SEO."
+            },
+            "description": {
+              "en": "Use for specific pages needing SEO **boost**.",
+              "es": "Usa para páginas específicas que necesitan SEO."
+            }
+          }
+        ]
       }
     ],
     "vocabulary": [
@@ -308,6 +244,159 @@
         }
       }
     ]
+  },
+  {
+    "title": {
+      "en": "Quiz: Stylesheet Format",
+      "es": "Quiz: Formato de hoja de estilos"
+    },
+    "textContents": {
+      "ending": [
+        {
+          "en": "In our project, we’ll use SCSS to take advantage of its extra features.",
+          "es": "En nuestro proyecto vamos a usar SCSS para aprovechar sus herramientas adicionales."
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "Choose the stylesheet format that supports variables and nesting:",
+          "es": "Elige el formato de hoja de estilos que permite variables y anidamiento:"
+        },
+        "options": [
+          {
+            "text": "CSS",
+            "correct": false,
+            "output": "CSS is basic and doesn’t support advanced features like variables."
+          },
+          {
+            "text": "SCSS",
+            "correct": true,
+            "output": "Correct! SCSS supports variables, nesting, and mixins."
+          },
+          {
+            "text": "HTML",
+            "correct": false,
+            "output": "HTML is not a stylesheet format."
+          },
+          {
+            "text": "JavaScript",
+            "correct": false,
+            "output": "JavaScript is used for logic, not styling."
+          }
+        ]
+      }
+    ],
+    "imageUrl": "link",
+    "backgroundColor": "#E0F7FA",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "title": {
+      "en": "Quiz: Understanding SEO in Web Projects",
+      "es": "Quiz: Entendiendo el SEO en proyectos web"
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "SEO helps your site appear in search results. Which technique helps improve SEO?",
+          "es": "El SEO ayuda a que tu sitio aparezca en los resultados de búsqueda. ¿Qué técnica ayuda a mejorar el SEO?"
+        },
+        "options": [
+          {
+            "text": "Using SSR or SSG",
+            "correct": true,
+            "output": "Correct! These techniques generate HTML that search engines can read easily."
+          },
+          {
+            "text": "Writing styles in SCSS",
+            "correct": false,
+            "output": "SCSS improves styling, but not SEO directly."
+          },
+          {
+            "text": "Using JavaScript for all content",
+            "correct": false,
+            "output": "JavaScript-only content can be harder for search engines to index."
+          },
+          {
+            "text": "Using only images for content",
+            "correct": false,
+            "output": "Search engines can't read text inside images, which negatively affects SEO."
+          }
+        ]
+      }
+    ],
+    "imageUrl": "link",
+    "backgroundColor": "#F3E5F5",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "title": {
+      "en": "Quiz: Comparing SCSS and LESS",
+      "es": "Quiz: Comparando SCSS y LESS"
+    },
+    "textContents": {
+      "ending": [
+        {
+          "en": "Choose the one that fits your project’s needs. We’ll use SCSS in our examples.",
+          "es": "Elige el que se adapte a tu proyecto. Usaremos SCSS en nuestros ejemplos."
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "options",
+        "completed": false,
+        "instruction": {
+          "en": "SCSS and LESS are CSS preprocessors. Which one is fully compatible with regular CSS syntax?",
+          "es": "SCSS y LESS son preprocesadores de CSS. ¿Cuál es totalmente compatible con la sintaxis CSS estándar?"
+        },
+        "options": [
+          {
+            "text": "LESS",
+            "correct": false,
+            "output": "Not quite. LESS has its own syntax and is not fully compatible with standard CSS."
+          },
+          {
+            "text": "SCSS",
+            "correct": true,
+            "output": "Correct! SCSS is fully compatible with regular CSS syntax, making it easier to integrate into existing stylesheets."
+          },
+          {
+            "text": "CSS",
+            "correct": false,
+            "output": "Incorrect. CSS is the base styling language, but it doesn’t support advanced features like variables, mixins, or nesting without a preprocessor."
+          },
+          {
+            "text": "HTML",
+            "correct": false,
+            "output": "Incorrect. HTML is a markup language used to structure content on the web, not for styling."
+          }
+        ]
+      }
+    ],
+    "imageUrl": "link",
+    "backgroundColor": "#FFFDE7",
+    "audioUrl": "link",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "link",
+      "position": "bottomLeft"
+    }
   }
- 
 ]

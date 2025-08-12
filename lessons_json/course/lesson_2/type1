@@ -1,64 +1,8 @@
 [
   {
     "title": {
-      "en": "Angular Technologies",
-      "es": "Tecnologías de Angular"
-    },
-    "exercise": [
-      {
-        "type": "options",
-        "completed": false,
-        "instruction": {
-          "en": "Based on the previous analogy, the engine refers to which technology?",
-          "es": "Según la analogía vista anteriormente. El motor, ¿A qué tecnología hace referencia?"
-        },
-        "options": [
-          {
-            "text": "Node",
-            "correct": true,
-            "output": {
-              "en": "JavaScript runtime environment. Correct!",
-              "es": "El entorno de ejecución de JavaScript. Correcto."
-            }
-          },
-          {
-            "text": "npm",
-            "correct": false,
-            "output": {
-              "en": "npm is the package manager, not the engine.",
-              "es": "npm es el gestor de paquetes, no el motor."
-            }
-          },
-          {
-            "text": "Angular CLI",
-            "correct": false,
-            "output": {
-              "en": "Angular CLI is a tool, not the engine.",
-              "es": "Angular CLI es una herramienta, no el motor."
-            }
-          },
-          {
-            "text": "JavaScript",
-            "correct": false,
-            "output": {
-              "en": "JavaScript is the language, not the engine.",
-              "es": "JavaScript es el lenguaje, no el motor."
-            }
-          }
-        ]
-      }
-    ],
-    "backgroundColor": "#FFF3E0",
-    "avatar": {
-      "name": "Lina",
-      "imageUrl": "LINK",
-      "position": "bottomLeft"
-    }
-  },
-  {
-    "title": {
-      "en": "Installing Angular",
-      "es": "Instalación de Angular"
+      "en": "Understanding Command for Installing Angular",
+      "es": "Entendiendo el comando para instalar Angular"
     },
     "textContents": {
       "introduction": [
@@ -128,8 +72,46 @@
   },
   {
     "title": {
-      "en": "Command for installing Angular CLI",
-      "es": "Comando para la instalación de Angular CLI"
+      "en": "Verify Angular Version ",
+      "es": "Verificar versión de Angular"
+    },
+    "textContents": {
+      "ending": [
+        {
+          "en": "Congratulations! We have successfully installed Angular!",
+          "es": "¡Felicidades, hemos instalado correctamente Angular!"
+        },
+        {
+          "en": "Remember, to create a new Angular project, we use the command: ng new project-name",
+          "es": "Recuerda que para la creación de un proyecto en Angular vamos a utilizar el comando: ng new nombre-de-proyecto"
+        }
+      ]
+    },
+    "exercise": [
+      {
+        "type": "input",
+        "instruction": {
+          "en": "Let's verify the version of the Angular CLI. Type the correct command:",
+          "es": "Vamos a verificar la versión de nuestro cliente de Angular. Escribe el comando correcto:"
+        },
+        "input": "ng version",
+        "output": "    _                      _                 ____ _     ___\n    / \\   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|\n   / △ \\ | '_ \\ / _` | | | | |/ _` | '__|   | |   | |    | |\n  / ___ \\| | | | (_| | |_| | | (_| | |      | |___| |___ | |\n /_/   \\_\\_| |_|\\__, |\\__,_|_|\\__,_|_|       \\____|_____|___|\n                |___/\n\nAngular CLI: 18.0.3\nNode: 22.17.0\nPackage Manager: npm 10.9.2\nOS: win32 x64\n\nAngular: undefined\n...\n\nPackage                      Version\n------------------------------------------------------\n@angular-devkit/architect    0.1800.3 (cli-only)\n@angular-devkit/core         18.0.3 (cli-only)\n@angular-devkit/schematics   18.0.3 (cli-only)\n@schematics/angular          18.0.3 (cli-only)",
+        "eoutput": "Incorrect command.",
+        "completed": false
+      }
+    ],
+    "imageUrl": "LINK",
+    "backgroundColor": "#FFF3E0",
+    "avatar": {
+      "name": "Lina",
+      "imageUrl": "LINK",
+      "position": "bottomLeft"
+    }
+  },
+  {
+    "title": {
+      "en": "Quiz: Command for installing Angular CLI",
+      "es": "Quiz: Comando para la instalación de Angular CLI"
     },
     "exercise": [
       {
@@ -173,39 +155,61 @@
   },
   {
     "title": {
-      "en": "Verify Angular Version ",
-      "es": "Verificar versión de Angular"
+      "en": "Creating a Project in Angular",
+      "es": "Creando un proyecto en Angular"
     },
     "textContents": {
+      "introduction": [
+        {
+          "en": "Now that we have everything ready, let's create a new Angular project using the terminal.",
+          "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal."
+        }
+      ],
       "ending": [
         {
-          "en": "Congratulations! We have successfully installed Angular!",
-          "es": "¡Felicidades, hemos instalado correctamente Angular!"
-        },
-        {
-          "en": "Remember, to create a new Angular project, we use the command: ng new project-name",
-          "es": "Recuerda que para la creación de un proyecto en Angular vamos a utilizar el comando: ng new nombre-de-proyecto"
+          "en": "In the upcoming lessons, we will work with SCSS in our Angular project.",
+          "es": "Para el proyecto de las siguientes lecciones vamos a trabajar con CSS."
         }
       ]
     },
     "exercise": [
       {
-        "type": "input",
+        "type": "options",
+        "completed": false,
         "instruction": {
-          "en": "Let's verify the version of the Angular CLI. Type the correct command:",
-          "es": "Vamos a verificar la versión de nuestro cliente de Angular. Escribe el comando correcto:"
+          "en": " ",
+          "es": "Creamos un proyecto. Elige el comando correcto:"
         },
-        "input": "ng version",
-        "output": "    _                      _                 ____ _     ___\n    / \\   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|\n   / △ \\ | '_ \\ / _` | | | | |/ _` | '__|   | |   | |    | |\n  / ___ \\| | | | (_| | |_| | | (_| | |      | |___| |___ | |\n /_/   \\_\\_| |_|\\__, |\\__,_|_|\\__,_|_|       \\____|_____|___|\n                |___/\n\nAngular CLI: 18.0.3\nNode: 22.17.0\nPackage Manager: npm 10.9.2\nOS: win32 x64\n\nAngular: undefined\n...\n\nPackage                      Version\n------------------------------------------------------\n@angular-devkit/architect    0.1800.3 (cli-only)\n@angular-devkit/core         18.0.3 (cli-only)\n@angular-devkit/schematics   18.0.3 (cli-only)\n@schematics/angular          18.0.3 (cli-only)",
-        "eoutput": "Incorrect command.",
-        "completed": false
+        "options": [
+          {
+            "text": "npm create project-name",
+            "correct": false,
+            "output": "Error: Unknown command 'npm create'."
+          },
+          {
+            "text": "ng new project-name",
+            "correct": true,
+            "output": "LINK IMAGEN DE TERMINAL"
+          },
+          {
+            "text": "ng create project-name",
+            "correct": false,
+            "output": "Error: Unknown command 'ng create'. Did you mean 'ng add' ?"
+          },
+          {
+            "text": "node new project-name",
+            "correct": false,
+            "output": "Error: 'new' is not a recognized Node.js command."
+          }
+        ]
       }
     ],
-    "imageUrl": "LINK",
+    "imageUrl": "link",
     "backgroundColor": "#FFF3E0",
+    "audioUrl": "link",
     "avatar": {
       "name": "Lina",
-      "imageUrl": "LINK",
+      "imageUrl": "link",
       "position": "bottomLeft"
     }
   }
