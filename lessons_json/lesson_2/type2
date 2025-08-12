@@ -128,62 +128,61 @@
         }
       ]
     },
-    "table": [
-      {
-        "title": {
-          "en": "Rendering Architectures",
-          "es": "Arquitecturas de renderizado."
-        },
-        "element": {
-          "en": "SSR (Server-Side Rendering)",
-          "es": "SSR (Renderización en el Servidor)"
-        },
-        "example": {
-          "en": "Server builds page on every **request**.",
-          "es": "El servidor crea la página en cada **petición.**"
-        },
-        "description": {
-          "en": "Use for dynamic content and **better** SEO.",
-          "es": "Usa para contenido dinámico y **mejor** SEO."
-        }
+
+  "tables": [
+    {
+      "title": {
+        "en": "Rendering Architectures",
+        "es": "Arquitecturas de renderizado."
       },
-      {
-        "title": {
-          "en": "Rendering Architectures",
-          "es": "Arquitecturas de renderizado."
+      "tableContent": [
+        {
+          "element": {
+            "en": "SSR (Server-Side Rendering)",
+            "es": "SSR (Renderización en el Servidor)"
+          },
+          "description": {
+            "en": "Use for dynamic content and **better** SEO.",
+            "es": "Usa para contenido dinámico y **mejor** SEO."
+          },
+          "example": {
+            "en": "Server builds page on every **request**.",
+            "es": "El servidor crea la página en cada **petición.**"
+          }
         },
-        "element": {
-          "en": "SSG (Static Site Generation)",
-          "es": "SSG (Generación de Sitios **Estáticos**)"
+        {
+          "element": {
+            "en": "SSG (Static Site Generation)",
+            "es": "SSG (Generación de Sitios **Estáticos**)"
+          },
+          "description": {
+            "en": "Use for mostly **static** sites and fast loading.",
+            "es": "Usa para sitios **estáticos** y carga rápida."
+          },
+          "example": {
+            "en": "Pages pre-built before **deployment.**",
+            "es": "Páginas creadas antes del **despliegue.**"
+          }
         },
-        "example": {
-          "en": "Pages pre-built before **deployment.**",
-          "es": "Páginas creadas antes del **despliegue.**"
-        },
-        "description": {
-          "en": "Use for mostly **static** sites and fast loading.",
-          "es": "Usa para sitios **estáticos** y carga rápida."
+        {
+          "element": {
+            "en": "**Prerendering**",
+            "es": "**Prerendering**"
+          },
+          "description": {
+            "en": "Use for specific pages needing SEO **boost**.",
+            "es": "Usa para páginas específicas que necesitan SEO."
+          },
+          "example": {
+            "en": "Pages generated **ahead** for SEO.",
+            "es": "Páginas generadas por **adelantado** para SEO."
+          }
         }
-      },
-      {
-        "title": {
-          "en": "Rendering Architectures",
-          "es": "Arquitecturas de renderizado."
-        },
-        "element": {
-          "en": "**Prerendering**",
-          "es": "**Prerendering**"
-        },
-        "example": {
-          "en": "Pages generated **ahead** for SEO.",
-          "es": "Páginas generadas por **adelantado** para SEO."
-        },
-        "description": {
-          "en": "Use for specific pages needing SEO **boost**.",
-          "es": "Usa para páginas específicas que necesitan SEO."
-        }
-      }
-    ],
+      ]
+    }
+  ],
+
+
     "vocabulary": [
       {
         "term": {

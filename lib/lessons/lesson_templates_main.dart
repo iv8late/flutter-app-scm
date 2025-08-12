@@ -36,7 +36,7 @@ class _LessonTemplatesMainState extends State<LessonTemplatesMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> lessonPages =
-        widget.item.lessonContent.map((lessonContent) {
+        (widget.item.lessonContent ?? []).map((lessonContent) {
           LessonType lessonType = getLessonType(lessonContent.typeId);
 
           switch (lessonType) {
@@ -49,6 +49,18 @@ class _LessonTemplatesMainState extends State<LessonTemplatesMain> {
           }
         }).toList();
 
+    if (lessonPages.isEmpty) {
+      lessonPages = [
+        Scaffold(
+          body: Center(
+            child: Text(
+              'No hay lecciones disponibles',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+      ];
+    }
     return Scaffold(
       body: Stack(
         children: [

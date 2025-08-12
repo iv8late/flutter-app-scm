@@ -116,7 +116,7 @@
       }
     ]
   },
-  {
+ {
     "title": {
       "en": "Node.js and npm ",
       "es": "Node.js y npm "
@@ -133,62 +133,70 @@
         }
       ]
     },
-    "table": [
+    "tables": [
       {
-        "element": {
-          "en": "JavaScript",
-          "es": "JavaScript"
+        "title": {
+          "en": "Rendering Architectures",
+          "es": "Arquitecturas de renderizado."
         },
-        "example": {
-          "en": "🔧 The language used to build the car",
-          "es": "🔧 El lenguaje para construir carros"
-        },
-        "description": {
-          "en": "The programming language",
-          "es": "Es el lenguaje de programación"
-        }
-      },
-      {
-        "element": {
-          "en": "Node.js",
-          "es": "Node.js"
-        },
-        "example": {
-          "en": "🚗 The car engine",
-          "es": "🚗 El motor del carro"
-        },
-        "description": {
-          "en": "Executes JavaScript outside the browser",
-          "es": "Ejecuta JavaScript fuera del navegador"
-        }
-      },
-      {
-        "element": {
-          "en": "npm",
-          "es": "npm"
-        },
-        "example": {
-          "en": "🛒 The parts store",
-          "es": "🛒 La tienda de repuestos"
-        },
-        "description": {
-          "en": "Installs tools like Angular",
-          "es": "Instala herramientas como Angular"
-        }
-      },
-      {
-        "element": {
-          "en": "Angular CLI",
-          "es": "Angular CLI"
-        },
-        "example": {
-          "en": "⚙️ A tool you install to work on the car",
-          "es": "⚙️ Una herramienta que compras para mejorar el carro"
-        },
-        "description": {
-          "en": "Utility to work with Angular projects",
-          "es": "Una utilidad para trabajar con proyectos Angular"
-        }
+        "tableContent": [
+          {
+            "element": {
+              "en": "JavaScript",
+              "es": "JavaScript"
+            },
+            "example": {
+              "en": "🔧 The language used to build the car",
+              "es": "🔧 El lenguaje para construir carros"
+            },
+            "description": {
+              "en": "The programming language",
+              "es": "Es el lenguaje de programación"
+            }
+          },
+          {
+            "element": {
+              "en": "Node.js",
+              "es": "Node.js"
+            },
+            "example": {
+              "en": "🚗 The car engine",
+              "es": "🚗 El motor del carro"
+            },
+            "description": {
+              "en": "Executes JavaScript outside the browser",
+              "es": "Ejecuta JavaScript fuera del navegador"
+            }
+          },
+          {
+            "element": {
+              "en": "npm",
+              "es": "npm"
+            },
+            "example": {
+              "en": "🛒 The parts store",
+              "es": "🛒 La tienda de repuestos"
+            },
+            "description": {
+              "en": "Installs tools like Angular",
+              "es": "Instala herramientas como Angular"
+            }
+          },
+          {
+            "element": {
+              "en": "Angular CLI",
+              "es": "Angular CLI"
+            },
+            "example": {
+              "en": "⚙️ A tool you install to work on the car",
+              "es": "⚙️ Una herramienta que compras para mejorar el carro"
+            },
+            "description": {
+              "en": "Utility to work with Angular projects",
+              "es": "Una utilidad para trabajar con proyectos Angular"
+            }
+          }
+        ]
       }
     ],
     "vocabulary": [
@@ -231,17 +239,9 @@
     }
   },
   {
-    "textContents": {
-      "introduction": [
-        {
-          "en": "Before creating a project, we need to get familiar with these concepts.",
-          "es": "Antes de crear un proyecto. Debemos conocer familiarizarnos con estos conceptos "
-        },
-        {
-          "en": "Let's look at the following analogy. To understand better",
-          "es": "Veamos la siguiente analogía para entender mejor."
-        }
-      ]
+     "title": {
+      "en": "Match de tecnologías de Angular",
+      "es": "Angular Technologies Match"
     },
     "exercise": [
       {

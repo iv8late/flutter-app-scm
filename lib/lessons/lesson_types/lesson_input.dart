@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
 import 'package:project_base_app/modules/courses/classes/course.dart';
-import 'package:project_base_app/shared/lesson_json_content.dart';
+import 'package:project_base_app/shared/json_classes/exercise_json.dart';
+import 'package:project_base_app/shared/json_classes/lesson_json_content.dart';
 
 class InputLesson extends StatefulWidget {
   final LessonScm lesson;
@@ -18,6 +19,7 @@ class _InputLessonState extends State<InputLesson> {
   final TextEditingController _controller = TextEditingController();
   String? feedback;
   bool isCorrect = false;
+  bool isSpanish = false;
 
   @override
   void initState() {
@@ -35,15 +37,30 @@ class _InputLessonState extends State<InputLesson> {
 
     return Scaffold(
       backgroundColor: AppTheme.primaryDark,
+      appBar: AppBar(
+        title: Text(isSpanish ? 'Lección' : 'Lesson'),
+        backgroundColor: AppTheme.primaryDark,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.language),
+            tooltip: 'Cambiar idioma',
+            onPressed: () {
+              setState(() {
+                isSpanish = !isSpanish;
+              });
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título principal
+              // Título
               Text(
-                data.title.es,
+                isSpanish ? data.title.es : data.title.en,
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -53,12 +70,12 @@ class _InputLessonState extends State<InputLesson> {
               const SizedBox(height: 16),
 
               // Introducción
-              if (data.textContents.introduction?.isNotEmpty ?? false)
-                ...data.textContents.introduction!.map(
+              if (data.textContents?.introduction?.isNotEmpty ?? false)
+                ...data.textContents!.introduction!.map(
                   (text) => Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Text(
-                      text.es,
+                      isSpanish ? text.es : text.en,
                       style: const TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
@@ -66,86 +83,83 @@ class _InputLessonState extends State<InputLesson> {
 
               const SizedBox(height: 16),
 
-              // Tabla de analogías
-              if (data.tableContent?.isNotEmpty ?? false)
+              // Tabla
+              // Tabla
+              if (data.tables?.isNotEmpty ?? false)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Analogías:',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Table(
-                      border: TableBorder.all(color: Colors.white24),
-                      defaultVerticalAlignment:
-                          TableCellVerticalAlignment.middle,
-                      columnWidths: const {
-                        0: FlexColumnWidth(2),
-                        1: FlexColumnWidth(3),
-                        2: FlexColumnWidth(3),
-                      },
-                      children: [
-                        const TableRow(
-                          decoration: BoxDecoration(color: Colors.white10),
+                  children:
+                      data.tables!.map((tableSection) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Text(
-                                'Elemento',
-                                style: TextStyle(color: Colors.white),
+                            if (tableSection.title != null)
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: Text(
+                                  isSpanish
+                                      ? tableSection.title!.es
+                                      : tableSection.title!.en,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
+                            Table(
+                              border: TableBorder.all(color: Colors.white24),
+                              defaultVerticalAlignment:
+                                  TableCellVerticalAlignment.middle,
+                              columnWidths: const {
+                                0: FlexColumnWidth(2),
+                                1: FlexColumnWidth(3),
+                                2: FlexColumnWidth(3),
+                              },
+                              children: [
+                                TableRow(
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white10,
+                                  ),
+                                  children: [
+                                    _buildTableHeader(
+                                      isSpanish ? 'Elemento' : 'Element',
+                                    ),
+                                    _buildTableHeader(
+                                      isSpanish ? 'Analogía' : 'Analogy',
+                                    ),
+                                    _buildTableHeader(
+                                      isSpanish ? 'Descripción' : 'Description',
+                                    ),
+                                  ],
+                                ),
+                                ...?tableSection.tableContent?.map(
+                                  (row) => TableRow(
+                                    children: [
+                                      _buildTableCell(
+                                        isSpanish
+                                            ? row.element.es
+                                            : row.element.en,
+                                      ),
+                                      _buildTableCell(
+                                        isSpanish
+                                            ? row.example.es
+                                            : row.example.en,
+                                      ),
+                                      _buildTableCell(
+                                        isSpanish
+                                            ? row.description.es
+                                            : row.description.en,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Text(
-                                'Analogía',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Text(
-                                'Descripción',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
+                            const SizedBox(height: 24),
                           ],
-                        ),
-                        ...data.tableContent!.map(
-                          (row) => TableRow(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Text(
-                                  row.element.es,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Text(
-                                  row.example.es,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Text(
-                                  row.description.es,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        );
+                      }).toList(),
                 ),
 
               const SizedBox(height: 24),
@@ -157,7 +171,7 @@ class _InputLessonState extends State<InputLesson> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        ex.instruction.es,
+                        isSpanish ? ex.instruction.es : ex.instruction.en,
                         style: const TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -173,7 +187,14 @@ class _InputLessonState extends State<InputLesson> {
                           tileColor: Colors.white12,
                           onTap: () {
                             setState(() {
-                              feedback = opt.output;
+                              if (opt.localizedOutput != null) {
+                                feedback =
+                                    isSpanish
+                                        ? opt.localizedOutput!.es
+                                        : opt.localizedOutput!.en;
+                              } else {
+                                feedback = opt.outputString ?? '';
+                              }
                               isCorrect = opt.correct;
                             });
                           },
@@ -197,7 +218,7 @@ class _InputLessonState extends State<InputLesson> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        ex.instruction.es,
+                        isSpanish ? ex.instruction.es : ex.instruction.en,
                         style: const TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -240,32 +261,34 @@ class _InputLessonState extends State<InputLesson> {
                       const Divider(color: Colors.white),
                     ],
                   );
+                } else if (ex.type == 'match') {
+                  return _buildMatchExercise(ex);
                 } else {
                   return const SizedBox.shrink();
                 }
               }),
 
               // Final
-              if (data.textContents.ending?.isNotEmpty ?? false)
+              if (data.textContents?.ending?.isNotEmpty ?? false)
                 Padding(
                   padding: const EdgeInsets.only(top: 32),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        '😊 Conclusión:',
-                        style: TextStyle(
+                      Text(
+                        isSpanish ? '😊 ' : '😊 ',
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 8),
-                      ...data.textContents.ending!.map(
+                      ...data.textContents!.ending!.map(
                         (text) => Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: Text(
-                            text.es,
+                            isSpanish ? text.es : text.en,
                             style: const TextStyle(
                               fontSize: 16,
                               color: Colors.white,
@@ -280,6 +303,140 @@ class _InputLessonState extends State<InputLesson> {
           ),
         ),
       ),
+    );
+  }
+
+  // Tabla helper
+  Widget _buildTableHeader(String text) => Padding(
+    padding: const EdgeInsets.all(8),
+    child: Text(text, style: const TextStyle(color: Colors.white)),
+  );
+
+  Widget _buildTableCell(String text) => Padding(
+    padding: const EdgeInsets.all(8),
+    child: Text(text, style: const TextStyle(color: Colors.white)),
+  );
+
+  // Match Exercise
+  Widget _buildMatchExercise(Exercise ex) {
+    final Map<String, String?> selectedMatches = {};
+    final leftItems = ex.left ?? [];
+    final rightItems = ex.right ?? [];
+    final pairItems = ex.pairs ?? [];
+
+    return StatefulBuilder(
+      builder: (context, setInnerState) {
+        final allSelected = selectedMatches.length == leftItems.length;
+        final allCorrect = selectedMatches.entries.every((entry) {
+          return pairItems.any(
+            (pair) => pair.left == entry.key && pair.right == entry.value,
+          );
+        });
+
+        return SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                isSpanish ? ex.instruction.es ?? '' : ex.instruction.en ?? '',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 8),
+              ...leftItems.map((leftItem) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          leftItem.text,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          overflow: TextOverflow.ellipsis, // 🔹 evita desbordes
+                          maxLines:
+                              2, // 🔹 permite que baje de línea si es necesario
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        flex: 5,
+                        child: DropdownButtonFormField<String>(
+                          isExpanded:
+                              true, // 🔹 MUY importante para que use todo el ancho disponible
+                          dropdownColor: AppTheme.darkBlue,
+                          value: selectedMatches[leftItem.id],
+                          hint: Text(
+                            isSpanish
+                                ? 'Seleccionar descripción'
+                                : 'Select description',
+                            style: const TextStyle(color: Colors.white70),
+                            overflow: TextOverflow.ellipsis, // 🔹
+                          ),
+                          style: const TextStyle(color: Colors.white),
+                          items:
+                              rightItems
+                                  .map(
+                                    (r) => DropdownMenuItem(
+                                      value: r.id,
+                                      child: Text(
+                                        r.text,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                        overflow: TextOverflow.ellipsis, // 🔹
+                                      ),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (value) {
+                            setInnerState(() {
+                              selectedMatches[leftItem.id] = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                onPressed:
+                    allSelected
+                        ? () {
+                          final color = allCorrect ? Colors.green : Colors.red;
+                          final message =
+                              allCorrect
+                                  ? (isSpanish ? '¡Correcto!' : 'Correct!')
+                                  : (isSpanish
+                                      ? 'Algunas respuestas son incorrectas.'
+                                      : 'Some answers are incorrect.');
+
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(message),
+                              backgroundColor: color,
+                            ),
+                          );
+                        }
+                        : null,
+                child: Text(
+                  isSpanish ? 'Verificar respuestas' : 'Check Answers',
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+        );
+      },
     );
   }
 }

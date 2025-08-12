@@ -88,6 +88,7 @@ class LessonScm {
               ?.map((e) => LessonContentScm.fromJson(e))
               .toList() ??
           [],
+
       isUnlocked: true,
     );
   }

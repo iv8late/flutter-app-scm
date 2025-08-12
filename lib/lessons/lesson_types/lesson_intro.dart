@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_base_app/config/theme/app_theme.dart';
+import 'package:project_base_app/lessons/lesson_types/build_cards.dart';
 import 'package:project_base_app/modules/courses/classes/course.dart';
-import 'package:project_base_app/shared/lesson_json_content.dart';
+import 'package:project_base_app/shared/json_classes/lesson_json_content.dart';
 import 'package:project_base_app/shared/widgets/text_contents_card.dart';
+// ... imports
 
 class IntroLesson extends StatefulWidget {
   final LessonScm lesson;
@@ -79,9 +81,9 @@ class _IntroLessonState extends State<IntroLesson> {
             ),
             const SizedBox(height: 16),
 
-            // INTRODUCCIÓN con fondo
-            if (data.textContents.introduction != null &&
-                data.textContents.introduction!.isNotEmpty)
+            // INTRODUCCIÓN
+            if (data.textContents?.introduction != null &&
+                data.textContents!.introduction!.isNotEmpty)
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
@@ -93,7 +95,7 @@ class _IntroLessonState extends State<IntroLesson> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children:
-                      data.textContents.introduction!
+                      data.textContents!.introduction!
                           .map(
                             (intro) => Padding(
                               padding: const EdgeInsets.only(bottom: 12),
@@ -111,10 +113,10 @@ class _IntroLessonState extends State<IntroLesson> {
               ),
 
             // CONTENIDOS
-            if (data.textContents.contents != null &&
-                data.textContents.contents!.isNotEmpty)
+            if (data.textContents?.contents != null &&
+                data.textContents!.contents!.isNotEmpty)
               TextContentsCard(
-                content: data.textContents,
+                content: data.textContents!,
                 vocabulary: data.vocabulary ?? [],
                 isSpanish: isSpanish,
                 onLanguageToggle: (value) {
@@ -126,10 +128,10 @@ class _IntroLessonState extends State<IntroLesson> {
 
             const SizedBox(height: 16),
 
-            // ENDING como ExpansionTile
-            if (data.textContents.ending != null &&
-                data.textContents.ending!.isNotEmpty)
-              _buildEndingSection(data.textContents.ending!),
+            // ENDING
+            if (data.textContents?.ending != null &&
+                data.textContents!.ending!.isNotEmpty)
+              _buildEndingSection(data.textContents!.ending!),
 
             const SizedBox(height: 16),
 
@@ -160,7 +162,14 @@ class _IntroLessonState extends State<IntroLesson> {
                             ),
                             onTap: () {
                               final correct = opt.correct;
-                              final result = opt.output;
+
+                              // Detecta si el output está localizado o es string plano
+                              final result =
+                                  opt.localizedOutput != null
+                                      ? (isSpanish
+                                          ? opt.localizedOutput!.es
+                                          : opt.localizedOutput!.en)
+                                      : (opt.outputString ?? '');
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -180,9 +189,9 @@ class _IntroLessonState extends State<IntroLesson> {
                 return const SizedBox.shrink();
               }),
 
-            // TABLA DE ANALOGÍAS
-            if (data.tableContent != null && data.tableContent!.isNotEmpty)
-              _buildAnalogyCards(data),
+            // TABLAS
+            if (data.tables != null && data.tables!.isNotEmpty)
+              ...data.tables!.map((table) => buildCards(data, isSpanish)),
 
             const SizedBox(height: 16),
 
@@ -194,120 +203,6 @@ class _IntroLessonState extends State<IntroLesson> {
     );
   }
 
-  Widget _buildAnalogyCards(LessonContentData data) {
-    final table = data.tableContent!;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          isSpanish ? 'Analogías' : 'Analogies',
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: AppTheme.white,
-          ),
-        ),
-        const SizedBox(height: 10),
-        ...table.map(
-          (row) => Card(
-            color: Colors.white,
-            margin: const EdgeInsets.symmetric(vertical: 8),
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.label_important,
-                        color: AppTheme.darkBlue,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        isSpanish ? row.element.es : row.element.en,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: AppTheme.darkBlue,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Text("📝 ", style: TextStyle(fontSize: 18)),
-                      Expanded(
-                        child: Text(
-                          isSpanish ? row.description.es : row.description.en,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.black54,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          isSpanish ? row.example.es : row.example.en,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.black87,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 6),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  // Header de tabla
-  Widget _tableHeader(String text) => Padding(
-    padding: const EdgeInsets.all(8),
-    child: Text(
-      isSpanish ? text : _translateHeader(text),
-      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-    ),
-  );
-
-  // Celdas de tabla
-  Widget _tableCell(String? text) => Padding(
-    padding: const EdgeInsets.all(8),
-    child: Text(
-      text?.isNotEmpty == true ? text! : '—',
-      style: const TextStyle(color: Colors.white),
-    ),
-  );
-
-  // Traducciones de headers
-  String _translateHeader(String esHeader) {
-    switch (esHeader) {
-      case 'Elemento':
-        return 'Element';
-      case 'Analogía':
-        return 'Analogy';
-      case 'Descripción':
-        return 'Description';
-      default:
-        return esHeader;
-    }
-  }
-
   // Avatar
   Widget _buildAvatar(Avatar avatar) {
     return Align(
@@ -316,13 +211,13 @@ class _IntroLessonState extends State<IntroLesson> {
               ? Alignment.bottomLeft
               : Alignment.bottomRight,
       child: CircleAvatar(
-        backgroundImage: NetworkImage(avatar.imageUrl),
+        // backgroundImage: NetworkImage(avatar.imageUrl),
         radius: 28,
       ),
     );
   }
 
-  // ENDING como ExpansionTile
+  // ENDING
   Widget _buildEndingSection(List<LocalizedText> endings) {
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),

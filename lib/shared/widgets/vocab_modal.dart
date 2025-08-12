@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_base_app/shared/lesson_json_content.dart';
+import 'package:project_base_app/shared/json_classes/lesson_json_content.dart';
 
 class VocabModal extends StatelessWidget {
   final VocabularyItem vocab;
