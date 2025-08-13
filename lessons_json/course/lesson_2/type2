@@ -1,16 +1,10 @@
 [
   {
     "title": {
-      "en": "Introduction to Angular",
-      "es": "Introducción a Angular"
+      "en": "Creating an Angular project",
+      "es": "Creando un proyecto de Angular"
     },
     "textContents": {
-      "introduction": [
-        {
-          "en": "Now that we have everything ready, let's create a new Angular project using the terminal.",
-          "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal."
-        }
-      ],
       "ending": [
         {
           "en": "In the upcoming lessons, we will work with CSS in our Angular project.",
@@ -23,8 +17,8 @@
         "type": "options",
         "completed": false,
         "instruction": {
-          "en": "Install Angular using npm. Choose the correct command:",
-          "es": "Creamos un proyecto. Elige el comando correcto:"
+          "en": "Now that we have everything ready, let's create a new Angular project using the terminal. Choose the correct command:",
+          "es": "Ahora con todo lo necesario vamos a crear un proyecto desde nuestra terminal. Elige el comando correcto:"
         },
         "options": [
           {
@@ -35,7 +29,7 @@
           {
             "text": "ng new project-name",
             "correct": true,
-            "output": "LINK IMAGEN DE TERMINAL"
+            "output": "Success. Your project has been created !"
           },
           {
             "text": "ng create project-name",
@@ -59,7 +53,7 @@
       "position": "bottomLeft"
     }
   },
-   {
+  {
     "title": {
       "en": "Web Optimization with SSR and SSG",
       "es": "Optimización Web con SSR y SSG"
@@ -119,12 +113,6 @@
         {
           "en": "SSR vs SSG: Which one should you choose? Let's break down these key concepts.",
           "es": "Entonces SSR vs SSG: ¿Cuál elegir?. Vamos a entender un poco los siguientes términos."
-        }
-      ],
-      "ending": [
-        {
-          "en": "Understanding SSR and SSG helps you build faster, more SEO-friendly websites. Choose wisely based on your content and performance needs.",
-          "es": "Comprender SSR y SSG te ayuda a construir sitios más rápidos y optimizados para SEO. Elige sabiamente según tus necesidades de contenido y rendimiento."
         }
       ]
     },
